@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.5
 import boto3
 import boto3config as config
+import time
 def connect_to_ec2():
     """
     Connect to EC2
@@ -35,7 +36,7 @@ def get_regions_zones(ec2):
     print('Regions:', response_regions['Regions'])
     print('Availability Zones:', response_zones['AvailabilityZones'])
 
-def create_instances(ec2):
+def create_single_instance(ec2):
     instance = ec2.run_instances(
     ImageId=config.IMAGE_ID,
     InstanceType=config.INSTANCE_TYPE,
@@ -44,17 +45,39 @@ def create_instances(ec2):
     },
     SecurityGroups=config.SECURITY_GROUPS,
     KeyName=config.KEY_NAME,
-    MaxCount=config.MAX_COUNT,
-    MinCount=config.MIN_COUNT,
+    MaxCount=1,
+    MinCount=1,
     )
     return instance
+
+def print_instance_info(ec2,instance):
+    instance_id = instance['Instances'][0]['InstanceId']
+    all_instances = ec2.describe_instances(
+    InstanceIds=[
+        instance_id,
+    ],
+    )
+
+    print("-------- Instance Info --------")
+    print("InstanceId:", all_instances['Reservations'][0]['Instances'][0]['InstanceId'])
+    print("Private IP:", all_instances['Reservations'][0]['Instances'][0]['PrivateIpAddress'])
+    print("Zone:", all_instances['Reservations'][0]['Instances'][0]['Placement']['AvailabilityZone'])
+    print("Key Name:", all_instances['Reservations'][0]['Instances'][0]['KeyName'])
+
+    print("------------- End -------------")
+
 def main():
     ec2 = connect_to_ec2()
     print("Connected to Nectar")
-    instance = create_instances(ec2)
-    print("Created instance")
-    info = ec2.describe_instances()
-    print(info)
+
+    instance = create_single_instance(ec2)
+    print("Created one instance")
+
+    #wait until IP has been settled
+    time.sleep(config.WAITING_TIME)
+    print_instance_info(ec2, instance)
+
+    # print(info)
     # get_images(ec2)
     # get_regions_zones(ec2)
 
