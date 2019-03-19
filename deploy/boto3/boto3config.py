@@ -6,13 +6,13 @@ EC2_ENDPOINT_URL = "https://nova.rc.nectar.org.au:8773/services/Cloud"
 
 # Instance Detail Config
 IMAGE_ID="ami-f70a8026"
-INSTANCE_ID="node-1-master"
 INSTANCE_TYPE="m2.small"
 SECURITY_GROUPS=["SSH","couchdb"]
 PLACEMENT="melbourne-qh2"
 KEY_NAME="assi2-key"
-MAX_COUNT=2
-MIN_COUNT=1
+
+# wait for IP to be settled
+WAITING_TIME = 10
 
 # create ssh as pem format
 # ssh-keygen -t rsa -f assi2-key -m PEM
