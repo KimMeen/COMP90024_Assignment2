@@ -9,7 +9,7 @@
 }
 
 body{
-  background-color: #191717;
+  background-color: #161616;
   color: white;
 }
 * {
@@ -19,7 +19,7 @@ body{
 }
 
 .bg-dark {
-  background-color:  #191717;
+  background-color:  #161616;
 }
 
 .container span{
@@ -162,7 +162,7 @@ body{
 #custom_carousel .item {
 
     color:white;
-    background-color:#191717;
+    background-color:#161616;
     padding:20px 0;
 }
 #custom_carousel .controls{
@@ -174,7 +174,7 @@ body{
     white-space: nowrap;
     text-align: center;
     position: relative;
-    background-color:#191717;
+    background-color:#161616;
 }
 #custom_carousel .controls li {
     display: table-cell;
@@ -182,7 +182,7 @@ body{
     max-width:90px
 }
 #custom_carousel .controls li.active {
-    background-color:#191717;
+    background-color:#161616;
     border-top:3px solid orange;
 }
 #custom_carousel .controls a small {
