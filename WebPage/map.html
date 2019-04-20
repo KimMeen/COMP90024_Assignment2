@@ -1,0 +1,30 @@
+<script src='https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<div id='map' style='width: 100%; height: 100%;'>
+<link rel="stylesheet" href="css/mapCover.css">
+<script src="js/dataRequest.js"></script>
+</div>
+
+<script>
+var dataObj = getMapData()
+mapboxgl.accessToken = 'pk.eyJ1IjoiemFjazA1MTgiLCJhIjoiY2p0OXF1NGt0MDMyNTQzbWV5Zmhsbnc0ZiJ9.6TFEHb0M8Iw-J6R45KYsMw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [133.90, -30.70],  // starting position [lng, lat]
+zoom : 3
+});
+
+
+dataObj.reply.forEach(function(coord){
+  var el = document.createElement('div');
+  el.className = 'marker';
+  // make a marker for each feature and add to the map
+  console.log(coord.coordinates)
+  new mapboxgl.Marker(el)
+    .setLngLat(coord.coordinates)
+    .addTo(map);
+});
+
+
+</script>
