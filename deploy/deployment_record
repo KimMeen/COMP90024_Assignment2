@@ -1,0 +1,65 @@
+echo "deb https://apache.bintray.com/couchdb-deb bionic main" \
+    | sudo tee -a /etc/apt/sources.list
+
+curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc \
+    | sudo apt-key add -
+
+
+
+
+sudo apt-get update && sudo apt-get install couchdb -y
+
+sudo apt-get --no-install-recommends -y install \
+    build-essential pkg-config erlang \
+    libicu-dev libmozjs185-dev libcurl4-openssl-dev
+
+sudo apt-get install vim -y
+
+erl -name car@115.146.85.14 -setcookie 'brumbrum' -kernel inet_dist_listen_min 9100 -kernel inet_dist_listen_max 9200
+net_kernel:connect_node('bus@115.146.85.20').
+erl -name bus@115.146.85.20 -setcookie 'brumbrum' -kernel inet_dist_listen_min 9100 -kernel inet_dist_listen_max 9200
+net_kernel:connect_node('car@115.146.85.14').
+
+-name couchdb@115.146.85.14
+-kernel inet_dist_listen_min 9100
+-kernel inet_dist_listen_max 9200
+
+
+# First, get two UUIDs to use later on. Be sure to use the SAME UUIDs on all nodes.
+curl http://115.146.85.14:5984/_uuids?count=2
+
+# CouchDB will respond with something like:
+#   {"uuids":["60c9e8234dfba3e2fdab04bf92001142","60c9e8234dfba3e2fdab04bf92001cc2"]}
+# Copy the provided UUIDs into your clipboard or a text editor for later use.
+# Use the first UUID as the cluster UUID.
+# Use the second UUID as the cluster shared http secret.
+
+# Create the admin user and password:
+curl -X PUT http://<server-IP|FQDN>:5984/_node/_local/_config/admins/admin -d '"password"'
+
+# Now, bind the clustered interface to all IP addresses availble on this machine
+curl -X PUT http://<server-IP|FQDN>:5984/_node/_local/_config/chttpd/bind_address -d '"0.0.0.0"'
+
+# Set the UUID of the node to the first UUID you previously obtained:
+curl -X PUT http://115.146.85.14:5984/_node/_local/_config/couchdb/uuid -d '3e4d2b2cfc6d2e56d8e4083bb00005c7'
+
+# Finally, set the shared http secret for cookie creation to the second UUID:
+curl -X PUT http://115.146.85.14:5984/_node/_local/_config/couch_httpd_auth/secret -d '3e4d2b2cfc6d2e56d8e4083bb0001414'
+
+
+
+
+openstack.compute.v2.image.ImageDetail(
+    status=ACTIVE, 
+    updated=2019-04-08T01:02:20Z, 
+    name=NeCTAR Ubuntu 18.04 LTS (Bionic) amd64 (pre-installed murano-agent with Docker), 
+    links=[{u'href': u'http://nova.rc.nectar.org.au:8774/v2.1/a2f5f4d6a2724e09bd9c0ff81e2ece12/images/4c5b48a0-fb86-4f4f-a98b-81e3af15e2eb', u'rel': u'self'}, {u'href': u'http://nova.rc.nectar.org.au:8774/a2f5f4d6a2724e09bd9c0ff81e2ece12/images/4c5b48a0-fb86-4f4f-a98b-81e3af15e2eb', u'rel': u'bookmark'}, {u'href': u'http://localhost:9292/images/4c5b48a0-fb86-4f4f-a98b-81e3af15e2eb', u'type': u'application/vnd.openstack.image', u'rel': u'alternate'}],
+    created=2019-04-08T00:54:29Z, 
+    minDisk=0, 
+    location=Munch({'project': Munch({'domain_id': None, 'id': u'a2f5f4d6a2724e09bd9c0ff81e2ece12', 'name': 'unimelb-comp90024-group-66', 'domain_name': None}), 'zone': None, 'region_name': 'Melbourne', 'cloud': 'openstack'}), 
+    progress=100, 
+    minRam=0, 
+    OS-EXT-IMG-SIZE:size=436908032, 
+    id=4c5b48a0-fb86-4f4f-a98b-81e3af15e2eb, 
+    metadata={u'os_distro': u'ubuntu', u'nectar_build': u'9', u'nectar_name': u'Ubuntu 18.04 LTS (Bionic) amd64 (pre-installed murano-agent with Docker)', u'hw_qemu_guest_agent': u'yes', u'murano_image_info': u'{"title": "NeCTAR Ubuntu 18.04 LTS (Bionic) amd64 (pre-installed murano-agent with Docker)", "type": "linux.docker"}', u'os_version': u'18.04', u'architecture': u'x86_64', u'default_user': u'ubuntu'}
+    )
