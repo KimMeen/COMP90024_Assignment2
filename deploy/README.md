@@ -1,13 +1,37 @@
 # Environment and Configuration
 
-This repo includes configuration scripts. Deployment is achieved with the help of provisioning tools(boto3 and ansible).
+This repo includes configuration scripts. 
+Deployment is achieved with the help of provisioning tools(openstackSDK(python)).
+Ansible will be used to automate the process as well.
 
-## Prerequisite
-1. Python3, boto3(pip install boto3), ansible(pip install ansible) should be installed.
-2. grep is not fully supported on Mac-OS. gnu-grep can be installed easily using homebrew. Remember to add to path.
-3. RSA key-pair exactly named as "assi2-key" must be generated on local machine(using following commands) and should be added to NeCTAR
-```
-ssh-keygen -t rsa -f assi2-key -m PEM
-ssh-agent bash; ssh-add ~/.ssh/assi2-key
-```
-4. Security Group called "couchdb" should be created on NeCTAR. Ingress TCP Port 5984
+
+## Databases(CouchDB)
+Public address is mapped using ngrok's mapping service. (This is only used for remote testing)
+For Example: http://xxxxxxx.ngrok.io's port 80 is mapped to port 5984 of the nectar instance, which is then mapped to the container's port 5984.
+
+After harvester can be implemented, It will scrawl the data directly to local database(couchdb).
+
+The couchDB Cluster will deal with data synchronization by itself.
+(If one database is create on single node. At the same time, It will be accessiable in all other nodes).
+
+To Prevent data lose. Replication will be implemented.
+
+
+Master Node: 
+Public: http://b8951816.ngrok.io
+Private(Access Through Student VPN): 172.26.37.209
+
+Slave Node 1:
+Public: http://0782f7b0.ngrok.io
+Private(Access Through Student VPN): 172.26.37.193
+
+Slave Node 2:
+Public: http://3722a596.ngrok.io
+Private(Access Through Student VPN): 172.26.37.196
+
+Slave Node 3:
+Public: http://782e8f7f.ngrok.io
+Private(Access Through Student VPN): 172.26.37.207
+
+> User Name: admin
+> User Password: admin
