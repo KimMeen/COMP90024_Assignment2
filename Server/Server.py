@@ -2,6 +2,8 @@ from flask import Flask, request
 import flask
 import couchdb
 import json
+import urllib.request
+import MapRegion
 app = Flask(__name__)
 
 class Db:
@@ -22,7 +24,6 @@ class Db:
             self.db = self.couchserver[dbname]
         else:
             self.db = self.couchserver.create(dbname)
-
     """
     Get all docs from db
     """
@@ -53,13 +54,23 @@ def getAllFromDB(db_name):
     res = formHeader(res)
     return res
 
-
+# form a get header
 def formHeader(res):
     res.headers['Access-Control-Allow-Origin'] = '*'
-    res.headers['Access-Control-Allow-Methods'] = 'POST'
-    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    res.headers['Access-Control-Allow-Methods'] = 'GET'
+    res.headers['Access-Control-Allbow-Headers'] = 'x-requested-with,content-type'
     return res
 
+@app.route('/sentiment_average', methods=["GET"])
+def period_view():
+    contents = urllib.request.urlopen("http://127.0.0.1:5984/comp90024/_design/new1/_view/new-view?reduce=true&group_level=1&skip=0").read().decode()
+    data = json.loads(contents)
+    MapRegion.loadData2Regions(data)
+    res = flask.make_response(flask.jsonify(data))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Methods'] = 'GET'
+    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return res
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', debug=True)

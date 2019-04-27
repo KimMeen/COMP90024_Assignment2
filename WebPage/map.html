@@ -6,9 +6,21 @@
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
+  #map {
+    position:absolute;
+    width: 1500px;
+		height: 900px;
+  }
+  .social-part .fa{
+      padding-right:20px;
+  }
+  ul li a{
+      margin-right: 20px;
+  }
 </style>
 </head>
 <body>
@@ -17,6 +29,35 @@
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
 
 <script src="js/dataRequest.js"></script>
+<script src="js/toolBar.js"></script>
+
+<nav class="navbar navbar-expand-sm   navbar-light bg-light">
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+ <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     <li class="nav-item">
+       <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#">Map</a>
+     </li>
+   <li class="nav-item">
+     <a class="nav-link" href="regionsMap.html">Choropleth Map</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="#">Data Graphs</a>
+   </li>
+   </ul>
+   <div class="social-part">
+     <i>Data is powered by &nbsp &nbsp </i>
+     <i class="fa fa-twitter" aria-hidden="true"></i>
+   </div>
+ </div>
+</nav>
+
 <div id='map'></div>
 
 <script>
@@ -32,17 +73,17 @@ var dataObj = getMapData()
     var markers = new L.MarkerClusterGroup();
     for (var i = 0; i < dataObj.reply.length; i++) {
         var a = dataObj.reply[i];
-        //console.log(a.coordinates[0]);
-        //coordinate [0]
-        var title = "none";
-        var marker = L.marker(new L.LatLng(a.coordinates[1], a.coordinates[0]), {
-            icon: L.mapbox.marker.icon({'marker-symbol': '1', 'marker-color': '0044FF'}),
-            title: title
-        });
-        marker.bindPopup(title);
-        markers.addLayer(marker);
+        var description = "sentiment score : "+ a.sentiment
+        var title = description;
+        if (a.coordinates != null){
+          var marker = L.marker(new L.LatLng(a.coordinates[0], a.coordinates[1]), {
+              icon: L.mapbox.marker.icon({'marker-symbol': '1', 'marker-color': '0044FF'}),
+              title: title
+          });
+          marker.bindPopup(title);
+          markers.addLayer(marker);
+        }
     }
-
     map.addLayer(markers);
 </script>
 </body>

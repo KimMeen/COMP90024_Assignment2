@@ -13,7 +13,6 @@
   <script src="js/animation.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <div class="jumbotron text-center">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div>
@@ -27,9 +26,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#scenario">SCENARIOS</a></li>
           <li><a href="#about">ABOUT</a></li>
-          <li><a href="#scenario">SCENARIOS</a></li>
-          <li><a href="#contact">CONTACT</a></li>
         </ul>
       </div>
     </div>
@@ -38,22 +36,56 @@
   <div class="container">
   <span class="mytext1"><h1 > Seven Deadly Sins <h1 ></span>
   <span class="mytext2"> <p>Welcome! <p></span>
-  <a class="btn btn-theme btn-sm btn-min-block" href="#">Learn More</a>
+  <a class="btn btn-theme btn-sm btn-min-block" href="map.html">Learn More</a>
+</div>
 </div>
 
+<div id = "scenario" class="container-fluid bg-dark slideanim" >
+  <div class="container-fluid text-center slideanim">
+    <a href="map.html"><div class="button1">Click Here go to analytics page</div></a>
+    <br><br><br><br>
+    <h2>Features</h2>
+  </div>
+  <div id="thumbnail-preview-indicators" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#thumbnail-preview-indicators" data-slide-to="0" class="active">
+              <div class="thumbnail">
+                <img class="img-responsive" src="img/map1.png">
+              </div>
+            </li>
+            <li data-target="#thumbnail-preview-indicators" data-slide-to="1">
+            <div class="thumbnail">
+                <img class="img-responsive" src="img/map2.png">
+              </div>
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item slides active">
+              <div class="slide-1"></div>
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Cluster Markers</h1>
+                  <p>Leaflet.markercluster, A technique of grouping markers that are close to each other together on each zom leve</p>
+                </div>
+              </div>
+            </div>
+            <div class="item slides">
+              <div class="slide-2"></div>
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Choropleth map style</h1>
+                  <p>Data visualization by Australian regions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#thumbnail-preview-indicators" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div>
 </div>
 
 <div id = "about" class="container-fluid bg-dark slideanim">
-  <div class="container-fluid text-center ">
-    <h2>Group 66</h2><br>
-    <h4><strong>Members:</strong> </h4>
-    <h4 class="slideanim">Minghong Gao : minghongg@student.unimelb.edu.au </h4>
-    <h4 class="slideanim">Kangping Xue : kxue@student.unimelb.edu.au </h4>
-    <h4 class="slideanim">Ziang Chen : ziang@student.unimelb.edu.au</h4>
-    <h4 class="slideanim">Wenjin Li: wenjinl2@student.unimelb.edu.au</h4>
-    <h4 class="slideanim">Ming Jin ： mingj2@student.unimelb.edu.au</h4>
-  </div>
-
   <div class="container-fluid text-center slideanim">
   <h2>TECHNOLOGY</h2>
   <h4>What we have used ..</h4>
@@ -93,112 +125,21 @@
       <p>Web front end framework, the website is powered by boostrap </p>
     </div>
   </div>
-</div>
 
-</div>
-
-<div id = "scenario" class="container-fluid bg-dark" >
-
-  <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="container-fluid">
-                  <a href="map.html">
-                    <div class="row">
-
-                        <div class="col-md-3"><img src="img/map.png" class="img-responsive">
-                        </div>
-                        <div class="col-md-9">
-                            <h1>SCENARIO 1</h1>
-                          <P>ababab</P>
-                        </div>
-                    </div>
-                  </a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3"><img src="img/map.png" class="img-responsive"></div>
-                        <div class="col-md-9">
-                          <h2>SCENARIO 2</h2>
-                          <P>ababab</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3"><img src="img/map.png" class="img-responsive"></div>
-                        <div class="col-md-9">
-                          <h2>SCENARIO 3</h2>
-
-                          <P>ababab</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3"><img src="img/map.png" class="img-responsive"></div>
-                        <div class="col-md-9">
-                          <h2>SCENARIO 4</h2>
-
-                          <P>ababab</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- End Item -->
-        </div>
-        <!-- End Carousel Inner -->
-        <div class="controls">
-            <ul class="nav">
-                <li data-target="#custom_carousel" data-slide-to="0" class="active"><a href="#"><img src="http://placehold.it/50x50"><small>Slide One</small></a></li>
-                <li data-target="#custom_carousel" data-slide-to="1"><a href="#"><img src="http://placehold.it/50x50"><small>Slide Two</small></a></li>
-                <li data-target="#custom_carousel" data-slide-to="2"><a href="#"><img src="http://placehold.it/50x50"><small>Slide Three</small></a></li>
-                <li data-target="#custom_carousel" data-slide-to="3"><a href="#"><img src="http://placehold.it/50x50"><small>Slide Four</small></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-
-<div id ="contact" class="container-fluid bg-grey">
-
-  <div class="container-fluid bg-grey slideanim">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we are not going to see anyway</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> unimelb, Autralia</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +00 000000000</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> zack0518@gmail.com</p>
-    </div>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
+  <h2>Group 66:</h2><br>
+  <h4><strong>Members:</strong> </h4>
+  <h4 class="slideanim">Kangping Xue , Minghong Gao, Wenjin Li , Ziang Chen, Ming Jin </h4>
   </div>
 </div>
-</div>
 
+<footer class="container-fluid text-center foot">
+
+        <div class="copyrights">
+            <p class="white-txt">Seven Deadly Sins © 2019
+                <br><br>
+            </p>
+        </div>
+</footer>
 
 </body>
 </html>

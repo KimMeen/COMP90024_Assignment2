@@ -2,82 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Cluster_Analysis_ziang/DBSCAN_sklearn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/Classifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/KeyWords.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/TextPreprocessor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/TranningData.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/Twitter_Harvester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/key" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AustraliaDangerousCritters-Text_Classifier/output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/assetWizardSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/caches/build_file_checksums.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/androidTest/java/com/example/ziang/besafe/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/HomePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/LoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/Map.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/java/com/example/ziang/besafe/Profile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/bluredbg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/buttonbg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/ic_map_black_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/ic_person_black_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/ic_photo_camera_black_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/inputframework.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/item_selected.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/drawable/start_page_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/activity_login_page.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/fragment_map.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/fragment_post.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/menu/btm_nav.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/values/google_maps_api.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/app/src/test/java/com/example/ziang/besafe/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BeSafe/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/ziang/trackingdangerouscritters/HomePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/ziang/trackingdangerouscritters/LoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_home_page.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_login_page.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/content_home_page.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/harvester_testdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/harvester_testdata.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,31 +43,85 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1314042803">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="json" value="4" />
+          <entry key="py" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="4" />
+          <entry key="Python" value="11" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="1895" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1895" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/harvester_testdata.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-504">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="-173">
+              <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <marker date="1555739017435" expanded="true" signature="450:651" ph="..." />
-                <marker date="1555739017435" expanded="true" signature="1233:1443" ph="..." />
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MapRegion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1556370912278" expanded="true" signature="606:719" ph="..." />
+                <marker date="1556370912278" expanded="true" signature="848:970" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/harvester_testdata.py">
+        <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="22">
+              <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
               <folding>
-                <marker date="1555736700506" expanded="true" signature="81:197" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret column="8279" selection-start-column="8264" selection-end-column="8279" />
             </state>
           </provider>
         </entry>
@@ -158,6 +139,10 @@
     <findStrings>
       <find>coordinates</find>
       <find>Point</find>
+      <find>location</find>
+      <find>proper</find>
+      <find>0.20833333333333334</find>
+      <find>sentiment_score</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,15 +154,19 @@
         <option value="$PROJECT_DIR$/Db.py" />
         <option value="$PROJECT_DIR$/CouchDB.py" />
         <option value="$PROJECT_DIR$/TwitterTest.py" />
+        <option value="$PROJECT_DIR$/test.json" />
+        <option value="$PROJECT_DIR$/LocationService.py" />
+        <option value="$PROJECT_DIR$/harvester_testdata.py" />
         <option value="$PROJECT_DIR$/Server.py" />
+        <option value="$PROJECT_DIR$/MapRegion.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="53" />
-    <option name="width" value="1168" />
-    <option name="height" value="814" />
+    <option name="x" value="34" />
+    <option name="y" value="29" />
+    <option name="width" value="1352" />
+    <option name="height" value="826" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -205,10 +194,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,9 +209,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -243,6 +234,48 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Server">
+    <configuration name="LocationService" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LocationService.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MapRegion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MapRegion.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -288,11 +321,15 @@
     <list>
       <item itemvalue="Python.TwitterTest" />
       <item itemvalue="Python.Server" />
+      <item itemvalue="Python.LocationService" />
+      <item itemvalue="Python.MapRegion" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Server" />
+        <item itemvalue="Python.MapRegion" />
         <item itemvalue="Python.TwitterTest" />
+        <item itemvalue="Python.LocationService" />
       </list>
     </recent_temporary>
   </component>
@@ -309,24 +346,33 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="194" y="83" width="1168" height="814" extended-state="0" />
+    <frame x="34" y="29" width="1352" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24934612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14500375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4695291" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39889196" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27247956" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33787465" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32977098" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32977098" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -336,37 +382,94 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CouchDB.py">
+    <entry file="file://$PROJECT_DIR$/CouchDB.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/_compat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="121">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/http/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="295" selection-start-line="295" selection-end-line="295" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/twitter_config.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="68" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aus_regions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LocationService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="794" selection-start-line="794" selection-end-line="794" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regionsData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret column="34883" selection-start-column="34864" selection-end-column="34883" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/harvester_testdata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="-173">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding>
-            <marker date="1555736700506" expanded="true" signature="81:197" ph="..." />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret column="8279" selection-start-column="8264" selection-end-column="8279" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-504">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="22">
+          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <marker date="1555739017435" expanded="true" signature="450:651" ph="..." />
-            <marker date="1555739017435" expanded="true" signature="1233:1443" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MapRegion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1556370912278" expanded="true" signature="606:719" ph="..." />
+            <marker date="1556370912278" expanded="true" signature="848:970" ph="..." />
           </folding>
         </state>
       </provider>
