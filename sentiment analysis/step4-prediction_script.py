@@ -50,6 +50,7 @@ if __name__ == '__main__':
     
     # get the prediction
     test_tweet_vector = get_feature_vector(raw_sentence)
+    #print('feature vector: ', test_tweet_vector)
     test_tweet_vector = np.reshape(test_tweet_vector, (1, len(test_tweet_vector)))
     test_tweet_vector = pad_sequences(test_tweet_vector, maxlen = max_length, padding = 'post')
     predictions = model.predict(test_tweet_vector, batch_size=128, verbose=1)
