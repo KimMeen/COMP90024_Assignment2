@@ -30,7 +30,6 @@ class Db:
     def getAllDoc(self):
         list = []
         for doc in self.db:
-            print(self.db[doc])
             list.append(self.db[doc])
         return list
 
