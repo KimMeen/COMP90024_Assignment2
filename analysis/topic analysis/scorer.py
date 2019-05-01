@@ -8,15 +8,15 @@ import sys
 
 class Scorer:
     
-    def __init__(self, analysor, dict_path):
-        self.analysor = analysor
-        
+    def __init__(self, analyser, dict_path):
+        self.analyser = analyser 
         self.searcher, self.words, self.weight = self.searcher(dict_path)
-    '''
+		
+    def KeywordWeight(self,searchResult, words, weights):
+	    '''
         Get the related keywords and corresponding weights
         searchResult: the result returned by kwtree2.search_all
-    '''
-    def KeywordWeight(self,searchResult, words, weights):
+		'''
         keyword = []
         keyword_weight = []
         for result in searchResult:
@@ -28,10 +28,12 @@ class Scorer:
                     break
         return keyword, keyword_weight
     
-    '''
-        Get the score of the word in terms of specific topics
-    '''
-    def scoring(self,keyword, weight, real_sentiment, intended_sentiment, sentilevel):
+    def scoring_v1(self, keyword, weight, real_sentiment, intended_sentiment, sentilevel):
+	    '''
+		Version 1
+		Get the score of the word in terms of specific topics
+		Score = (weight 1 + weight 2 + ... + weight N) * discount factor
+		'''
         score = 0
         for i in range(len(weight)):
             score += float(weight[i])
@@ -41,11 +43,22 @@ class Scorer:
             discount = -sentilevel
         score = score * discount
         return score
+		
+	def scoring_v2(self, keyword, weight):
+		'''
+		Version 2
+        Get the score of the word in terms of specific topics
+		Score = weight 1 + weight 2 + ... + weight N
+		'''
+		score = 0
+		for i in range(len(weight)):
+			score += float(weight[i])
+		return score
     
-    '''
+    def searcher(self, filepath):
+	    '''
         Get the related words in the dictionary and put them into KeywordTree
-    '''
-    def searcher(self,filepath):
+		'''
         kwtree_word = []
         kwtree_weight = []
         f = open(filepath)
@@ -62,14 +75,25 @@ class Scorer:
         kwtree.finalize()
         return kwtree, kwtree_word, kwtree_weight
     
-    '''
-        The main entry
-    '''
-    def get_score(self, tweet,intended_sentiment):
+    def get_score_v1(self, tweet, intended_sentiment):
+	    '''
+        The main entry (version 1)
+		Associated with scoring_v1
+		'''
         search_result = self.searcher.search_all(tweet)
         keyword, keyword_weight = self.KeywordWeight(search_result, self.words, self.weight)
-        prediction = self.analysor.prediction(tweet)
+        prediction = self.analyser.prediction(tweet)
         real_senti = prediction[0]
         sentilevel = prediction[1]
-        score = self.scoring(keyword, keyword_weight, intended_sentiment, real_senti, sentilevel)
+        score = self.scoring_v1(keyword, keyword_weight, intended_sentiment, real_senti, sentilevel)
+        return score
+	
+	def get_score_v2(self, tweet):
+	    '''
+        The main entry (version 2)
+		Associated with scoring_v2
+		'''
+        search_result = self.searcher.search_all(tweet)
+        keyword, keyword_weight = self.KeywordWeight(search_result, self.words, self.weight)
+        score = self.scoring_v2(keyword, keyword_weight)
         return score

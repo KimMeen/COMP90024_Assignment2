@@ -15,9 +15,9 @@ from keras.models import load_model
 from keras.initializers import glorot_uniform
 
 
-class sentianalysor:
+class sentianalyser:
     '''
-    This analysor has been created to do the sentiment analysis
+    This analyser has been created to do the sentiment analysis
     
     These methods has been defined:
         |-- is_valid_word: To judge if the given word valid or not
