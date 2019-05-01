@@ -1,5 +1,4 @@
 import json
-import Server
 from shapely.geometry import shape, Point
 
 with open('aus_regions.json') as f:
