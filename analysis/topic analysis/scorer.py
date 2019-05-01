@@ -8,9 +8,10 @@ import sys
 
 class Scorer:
     
-    def __init__(self, analysor):
+    def __init__(self, analysor, dict_path):
         self.analysor = analysor
-    
+        
+        self.searcher, self.words, self.weight = self.searcher(dict_path)
     '''
         Get the related keywords and corresponding weights
         searchResult: the result returned by kwtree2.search_all
@@ -64,10 +65,9 @@ class Scorer:
     '''
         The main entry
     '''
-    def get_score(self, dict_path, tweet,intended_sentiment):
-        searcher, words, weight = self.searcher(dict_path)
-        search_result = searcher.search_all(tweet)
-        keyword, keyword_weight = self.KeywordWeight(search_result, words, weight)
+    def get_score(self, tweet,intended_sentiment):
+        search_result = self.searcher.search_all(tweet)
+        keyword, keyword_weight = self.KeywordWeight(search_result, self.words, self.weight)
         prediction = self.analysor.prediction(tweet)
         real_senti = prediction[0]
         sentilevel = prediction[1]
