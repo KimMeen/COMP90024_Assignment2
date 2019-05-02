@@ -85,7 +85,7 @@ def analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scor
     id = document["_id"]
     created_at = document["created_at"]
     text = document["text"]
-    location = document["location"]
+    #location = document["location"]
     coordinates = document["coordinates"]
     label, proba = senti_analyzer.prediction(text)
     # 0:NEGATIVE 1:POSITIVE
@@ -94,7 +94,7 @@ def analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scor
     alcohols_sc = alcohols_scorer.get_score_v2(text)
     fastfood_sc = fastfood_scorer.get_score_v2(text)
     smoking_sc = smoking_scorer.get_score_v2(text)
-    return {"_id":id,"created_at":created_at,"text":text,"label":label_flag,"region":region,"probability":proba,
+    return {"_id":id,"created_at":created_at,"text":text,"label":label_flag,"region":region,"probability":proba,"coordinates":coordinates,
                        "alcohols_score":alcohols_sc,"fastfood_score":fastfood_sc,"smoking_score":smoking_sc}
 
 
