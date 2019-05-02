@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import logging
+# In[5]:
+
 import couchdb
 import json
 import sys
@@ -13,6 +14,10 @@ sys.path.append('../util')
 import text_util
 # sys.path.append('../util')
 # import MapRegion
+
+
+# In[6]:
+
 
 '''
     Get the source db(the db created by harverster)
@@ -28,11 +33,11 @@ def get_source_db():
             db_server = couchdb.Server(config["Servers"][0])
             source_db_name = config["DB"][0]
             if source_db_name not in db_server:
-                logging.error("Database %s does not exist, something went wrong." %(source_db_name))
+                print("Database %s does not exist, something went wrong." %(source_db_name))
                 return
             source_db = db_server[source_db_name]
         except Exception as e:
-            logging.error("error happened: %s" %e)
+            print("error happened: %s" %e)
             sys.exit(2)
     return source_db
 
@@ -48,7 +53,7 @@ def get_dest_db():
             if dest_db_name in db_server:
                 dest_db = db_server[dest_db_name]
         except Exception as e:
-            logging.error("error happened: %s" %e)
+            print("error happened: %s" %e)
             sys.exit(2)
     return dest_db
 
@@ -62,13 +67,13 @@ def create_dest_db():
             db_server = couchdb.Server(config["Servers"][0])
             dest_db_name = config["DB"][1]
             if dest_db_name in db_server:
-                logging.info("db has existed, create a new one")
+                print("db has existed, create a new one")
                 db_server.delete(dest_db_name)
                 dest_db = db_server.create(dest_db_name)
             else:
                 dest_db = db_server.create(dest_db_name)
         except Exception as e:
-            logging.error("error happened: %s" %e)
+            print("error happened: %s" %e)
             sys.exit(2)
     return dest_db
 
@@ -77,29 +82,29 @@ def create_dest_db():
     the analysis result will be returned
 '''
 def analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scorer):
+    id = document["_id"]
     created_at = document["created_at"]
-    raw_text = document["text"]
+    text = document["text"]
     location = document["location"]
     coordinates = document["coordinates"]
-    label, proba = senti_analyzer.prediction(raw_text)
-    new_text = text_util.preprocess_tweet(raw_text)
+    label, proba = senti_analyzer.prediction(text)
     # 0:NEGATIVE 1:POSITIVE
     label_flag = 0 if label=="NEGATIVE" else 1
-    ##########add Region here###################
-    alcohols_sc = alcohols_scorer.get_score_v2(new_text)
-    fastfood_sc = fastfood_scorer.get_score_v2(new_text)
-    smoking_sc = smoking_scorer.get_score_v2(new_text)
-    return {"created_at":created_at,"text":new_text,"label":label_flag,"probability":proba,
+    region = document["region"]
+    alcohols_sc = alcohols_scorer.get_score_v2(text)
+    fastfood_sc = fastfood_scorer.get_score_v2(text)
+    smoking_sc = smoking_scorer.get_score_v2(text)
+    return {"_id":id,"created_at":created_at,"text":text,"label":label_flag,"region":region,"probability":proba,
                        "alcohols_score":alcohols_sc,"fastfood_score":fastfood_sc,"smoking_score":smoking_sc}
 
 
-
 from mpi4py import MPI
+import time
 
 comm = MPI.COMM_WORLD
 comm_rank = comm.Get_rank()
 comm_size = comm.Get_size()
-
+start_time = time.time()
 modelpath = './sentiment analysis/model/sentiment_lstm.h5'
 pklpath = './sentiment analysis/model/sentiment140-freqdist.pkl'
 senti_analyzer = senti.sentianalyser(modelpath, pklpath, stemmer = False)
@@ -133,7 +138,8 @@ for ele in source_db:
             result = []
 if buffer != 0 and len(result) != 0:
     dest_db.update(result)
-print("rank %s Analyzing successfully!" %comm_rank)
+end_time = time.time()
+print("rank %s Analyzing successfully! time consumed: %s" %(comm_rank,(end_time-start_time)))
 
 
 
