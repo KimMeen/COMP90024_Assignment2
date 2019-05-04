@@ -90,7 +90,8 @@ def analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scor
     label, proba = senti_analyzer.prediction(text)
     # 0:NEGATIVE 1:POSITIVE
     label_flag = 0 if label=="NEGATIVE" else 1
-    region = document["region"]
+    #region = document["region"]
+    region = None
     alcohols_sc = alcohols_scorer.get_score_v2(text)
     fastfood_sc = fastfood_scorer.get_score_v2(text)
     smoking_sc = smoking_scorer.get_score_v2(text)
@@ -110,7 +111,9 @@ pklpath = './sentiment analysis/model/sentiment140-freqdist.pkl'
 senti_analyzer = senti.sentianalyser(modelpath, pklpath, stemmer = False)
 if comm_rank == 0:
     source_db = get_source_db()
-    dest_db = create_dest_db()
+    dest_db = get_dest_db()
+    if dest_db is None:
+        dest_db = create_dest_db()
 else:
     source_db = get_source_db()
     dest_db = None
@@ -128,6 +131,8 @@ result = []
 for ele in source_db:
     index += 1
     print(index)
+    if ele in dest_db:
+        continue
     if index % comm_size == comm_rank: 
         buffer += 1
         document = source_db[ele]
@@ -140,8 +145,3 @@ if buffer != 0 and len(result) != 0:
     dest_db.update(result)
 end_time = time.time()
 print("rank %s Analyzing successfully! time consumed: %s" %(comm_rank,(end_time-start_time)))
-
-
-
-
-
