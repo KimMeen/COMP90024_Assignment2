@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for
 import flask
 import couchdb
 import json
@@ -29,7 +29,8 @@ class Db:
     def getAllDoc(self):
         list = []
         for doc in self.db:
-            list.append(self.db[doc])
+            if not self.db[doc]['alcohols_score'] == 0 and not self.db[doc]['fastfood_score'] == 0 and not self.db[doc]['smoking_score'] == 0:
+                list.append(self.db[doc])
         return self.db
 
     """
@@ -37,6 +38,13 @@ class Db:
     """
     def writeDoc2DB(self, data):
         self.db.save(data)
+
+
+    def getHighRelevanceView(self):
+        contents = urllib.request.urlopen("http://172.26.37.207:5984/result/_design/filter/_view/new-view?skip=0&reduce=false").read().decode()
+        data = json.loads(contents)
+        return data
+
 
     def loadWebData(self):
         with open('aus_regions.json') as f:
@@ -57,9 +65,27 @@ class Db:
         return None
 
 
-@app.route('/')
+@app.route('/index')
 def home():
-    return "Connected To Server"
+    return render_template('index.html')
+
+@app.route('/mapPage')
+def goToMap():
+    return render_template('map.html')
+
+@app.route('/regionMap')
+def goToRegionMap():
+    return render_template('regionsMap.html')
+
+@app.route('/data')
+def getData():
+    d = Db('result')
+    result = d.getHighRelevanceView()
+    ans = flask.make_response(flask.jsonify(result))
+    ans.headers['Access-Control-Allow-Origin'] = '*'
+    ans.headers['Access-Control-Allow-Methods'] = 'GET'
+    ans.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return ans
 
 @app.route('/db/<string:db_name>', methods=["GET"])
 def getAllFromDB(db_name):
@@ -83,5 +109,4 @@ def period_view():
     return res
 
 if __name__ == '__main__':
-    db = Db('tweets')
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='127.0.0.1', debug=True)
