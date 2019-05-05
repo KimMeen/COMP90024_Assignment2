@@ -3,7 +3,6 @@ import flask
 import couchdb
 import json
 import urllib.request
-import MapRegion
 app = Flask(__name__)
 class Db:
 

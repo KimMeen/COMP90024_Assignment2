@@ -193,7 +193,7 @@ body{
       height: 600px;
     }
 #thumbnail-preview-indicators .slides .slide-1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/map1.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url();
 }
 #thumbnail-preview-indicators .slides .slide-2 {
   background-image:  linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/map2.png);
