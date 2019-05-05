@@ -46,14 +46,13 @@ class Db:
         return data
 
 
-    def loadWebData(self):
+    def loadData2Regions(self,data):
         with open('aus_regions.json') as f:
             regions = json.load(f)
         for r in regions['features']:
-            value = self.getPlaceValue(regions, r['properties']['Name'])
-            r['sentiment_score'] = value
-        with open("../WebPage/regionsData.json", "w") as out:
-            out.write("var statistic = " + json.dumps(regions))
+            value = self.getPlaceValue(data, r['properties']['Name'])
+            r['num'] = value
+        return regions
 
     # get the related value of the place
     def getPlaceValue(self, regions, regionName):
@@ -76,6 +75,7 @@ def goToMap():
 @app.route('/regionMap')
 def goToRegionMap():
     return render_template('regionsMap.html')
+
 
 @app.route('/data')
 def getData():
@@ -103,6 +103,26 @@ def period_view():
     data = json.loads(contents)
     MapRegion.loadData2Regions(data)
     res = flask.make_response(flask.jsonify(data))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Methods'] = 'GET'
+    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return res
+
+
+@app.route('/regionCount/<string:data_name>', methods=["GET"])
+def smokeRegionCount(data_name):
+    print(data_name)
+    contents = {}
+    if data_name == "Smoking":
+        contents = urllib.request.urlopen("http://172.26.37.207:5984/result/_design/filter/_view/smoking?reduce=true&group_level=1").read().decode()
+    elif data_name == "Fastfood":
+        contents = urllib.request.urlopen("http://172.26.37.207:5984/result/_design/filter/_view/fastfood?reduce=true&group_level=1").read().decode()
+    elif data_name == "Alcohols":
+        contents = urllib.request.urlopen("http://172.26.37.207:5984/result/_design/filter/_view/alcohols?reduce=true&group_level=1").read().decode()
+    data = json.loads(contents)
+    db = Db("result")
+    result = db.loadData2Regions(data)
+    res = flask.make_response(flask.jsonify(result))
     res.headers['Access-Control-Allow-Origin'] = '*'
     res.headers['Access-Control-Allow-Methods'] = 'GET'
     res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
