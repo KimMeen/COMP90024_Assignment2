@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/cover.css" beforeDir="false" afterPath="$PROJECT_DIR$/../WebPage/css/cover.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebPage/css/useless/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +78,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="135" />
-          <entry key="html" value="597" />
+          <entry key="html" value="601" />
           <entry key="js" value="571" />
           <entry key="py" value="2829" />
         </counts>
@@ -95,7 +86,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="135" />
-          <entry key="HTML" value="597" />
+          <entry key="HTML" value="601" />
           <entry key="JavaScript" value="571" />
           <entry key="Python" value="2829" />
         </counts>
@@ -107,17 +98,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="1126">
               <caret line="158" column="26" lean-forward="true" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="-62">
+              <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
                 <marker date="1557057714790" expanded="true" signature="1134:1341" ph="..." />
@@ -128,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="73" column="47" lean-forward="true" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
+            <state relative-caret-position="170">
+              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -207,8 +198,8 @@
         <option value="$PROJECT_DIR$/static/js/toolBar.js" />
         <option value="$PROJECT_DIR$/templates/regionsMap.html" />
         <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
-        <option value="$PROJECT_DIR$/templates/map.html" />
         <option value="$PROJECT_DIR$/Server.py" />
+        <option value="$PROJECT_DIR$/templates/map.html" />
       </list>
     </option>
   </component>
@@ -587,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="158" column="26" lean-forward="true" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -604,23 +588,30 @@
     <entry file="file://$PROJECT_DIR$/static/mapCover.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="47" lean-forward="true" selection-start-line="73" selection-start-column="47" selection-end-line="73" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state relative-caret-position="-62">
+          <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
             <marker date="1557057714790" expanded="true" signature="1134:1341" ph="..." />
             <marker date="1557057714790" expanded="true" signature="1278:1279" ph="..." />
             <marker date="1557057714790" expanded="true" signature="2131:2133" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1126">
+          <caret line="158" column="26" lean-forward="true" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
         </state>
       </provider>
     </entry>
