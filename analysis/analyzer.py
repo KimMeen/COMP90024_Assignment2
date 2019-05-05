@@ -123,16 +123,16 @@ fastfood_dict = "./topic analysis/dictionary/fastfood.txt"
 smoking_dict = "./topic analysis/dictionary/smoking.txt"
 alcohols_scorer = scorer.Scorer(senti_analyzer, alcohols_dict)
 fastfood_scorer = scorer.Scorer(senti_analyzer, fastfood_dict)
-smoking_scorer = scorer.Scorer(senti_analyzer, alcohols_dict)
+smoking_scorer = scorer.Scorer(senti_analyzer, smoking_dict)
 index = 0
 buffer = 0
 result = []
 for ele in source_db:
     index += 1
     print(index)
-    if ele in dest_db:
-        continue
-    if index % comm_size == comm_rank: 
+    if index % comm_size == comm_rank:
+        if ele in dest_db:
+            continue
         buffer += 1
         document = source_db[ele]
         result.append(analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scorer))
