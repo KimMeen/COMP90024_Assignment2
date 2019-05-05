@@ -7,7 +7,7 @@ function getLastSelectedValue(){
 
 function getMapData(){
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", 'http://127.0.0.1:5000/data', false);
+    xmlHttp.open("GET", 'http://172.26.37.207:5000/data', false);
     xmlHttp.send();
     var obj = JSON.parse(xmlHttp.responseText);
     return obj;
@@ -24,9 +24,9 @@ function reload(){
 function getRegionView(){
     data_name = document.getElementById("selectData").value
     var xmlHttp = new XMLHttpRequest();
-    var request = "http://127.0.0.1:5000/regionCount/"+data_name
+    var request = "http://172.26.37.207:5000/regionCount/"+data_name
     var value = localStorage.getItem("pick_")
-    if(value) {request= "http://127.0.0.1:5000/regionCount/"+value}
+    if(value) {request= "http://172.26.37.207:5000/regionCount/"+value}
     console.log(request)
     xmlHttp.open("GET", request, false);
     xmlHttp.send();
