@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,15 +45,16 @@
     <session id="1314042803">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,7 +82,7 @@
           <entry key="css" value="135" />
           <entry key="html" value="2141" />
           <entry key="js" value="911" />
-          <entry key="py" value="6927" />
+          <entry key="py" value="6946" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -88,18 +90,21 @@
           <entry key="CSS" value="135" />
           <entry key="HTML" value="2141" />
           <entry key="JavaScript" value="911" />
-          <entry key="Python" value="6927" />
+          <entry key="Python" value="6946" />
         </counts>
       </usages-collector>
     </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Server" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="237" column="49" lean-forward="true" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
+            <state relative-caret-position="3555">
+              <caret line="237" column="49" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -107,16 +112,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
+            <state relative-caret-position="323">
+              <caret line="265" column="41" selection-start-line="265" selection-start-column="41" selection-end-line="265" selection-end-column="41" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
-                <marker date="1557492769342" expanded="true" signature="1081:1087" ph="..." />
-                <marker date="1557492769342" expanded="true" signature="1230:1474" ph="..." />
-                <marker date="1557492769342" expanded="true" signature="1362:1363" ph="..." />
-                <marker date="1557492769342" expanded="true" signature="5080:5085" ph="..." />
-                <marker date="1557492769342" expanded="true" signature="6429:6473" ph="..." />
-                <marker date="1557492769342" expanded="true" signature="6471:6473" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="1081:1087" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="1230:1474" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="1362:1363" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="5080:5085" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="6429:6473" ph="..." />
+                <marker date="1557493350679" expanded="true" signature="6471:6473" ph="..." />
               </folding>
             </state>
           </provider>
@@ -125,7 +130,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/overweight.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state>
               <caret column="319" selection-start-column="283" selection-end-column="319" />
             </state>
           </provider>
@@ -134,7 +139,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/charts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
+            <state relative-caret-position="1875">
               <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
             </state>
           </provider>
@@ -143,7 +148,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
+            <state relative-caret-position="870">
               <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
             </state>
           </provider>
@@ -434,19 +439,19 @@
     <frame x="217" y="34" width="1169" height="792" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66871166" visible="true" weight="0.16811846" />
-      <window_info id="Structure" order="1" sideWeight="0.33128834" side_tool="true" visible="true" weight="0.16811846" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6666667" visible="true" weight="0.16811846" />
+      <window_info id="Structure" order="1" sideWeight="0.33333334" side_tool="true" visible="true" weight="0.16811846" />
+      <window_info id="Favorites" order="2" sideWeight="0.33128834" side_tool="true" weight="0.16811846" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32714286" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6437282" visible="true" weight="0.3014286" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.64285713" visible="true" weight="0.3014286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33787465" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32977098" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.35627177" side_tool="true" visible="true" weight="0.3014286" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.35714287" side_tool="true" visible="true" weight="0.3014286" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32970026" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -565,16 +570,8 @@
     <entry file="file://$PROJECT_DIR$/static/mapCover.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/family_violence.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regionsData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/family_violence.json" />
+    <entry file="file://$PROJECT_DIR$/regionsData.json" />
     <entry file="file://$PROJECT_DIR$/aus_regions.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -626,44 +623,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="237" column="49" lean-forward="true" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
+        <state relative-caret-position="3555">
+          <caret line="237" column="49" selection-start-line="237" selection-start-column="49" selection-end-line="237" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/overweight.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
+        <state>
           <caret column="319" selection-start-column="283" selection-end-column="319" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/charts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
+        <state relative-caret-position="1875">
           <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
+        <state relative-caret-position="870">
           <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="265" column="40" selection-start-line="265" selection-start-column="40" selection-end-line="265" selection-end-column="40" />
+        <state relative-caret-position="323">
+          <caret line="265" column="41" selection-start-line="265" selection-start-column="41" selection-end-line="265" selection-end-column="41" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <marker date="1557492769342" expanded="true" signature="1081:1087" ph="..." />
-            <marker date="1557492769342" expanded="true" signature="1230:1474" ph="..." />
-            <marker date="1557492769342" expanded="true" signature="1362:1363" ph="..." />
-            <marker date="1557492769342" expanded="true" signature="5080:5085" ph="..." />
-            <marker date="1557492769342" expanded="true" signature="6429:6473" ph="..." />
-            <marker date="1557492769342" expanded="true" signature="6471:6473" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="1081:1087" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="1230:1474" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="1362:1363" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="5080:5085" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="6429:6473" ph="..." />
+            <marker date="1557493350679" expanded="true" signature="6471:6473" ph="..." />
           </folding>
         </state>
       </provider>

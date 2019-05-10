@@ -263,6 +263,4 @@ def smokeRegionCount(data_name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port="6000", debug=True)
-    # d = Db("tweets_city")
-    # d.getCityAurinData("Adelaide", "lung_cancer.json")
+    app.run(host='0.0.0.0', port = 8080, debug=True)
