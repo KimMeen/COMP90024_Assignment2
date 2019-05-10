@@ -32,8 +32,6 @@ function getRegionView(){
     var xmlHttp = new XMLHttpRequest();
     var request = url+ "regionCount/"+data_name;
     console.log(request);
-    var value = localStorage.getItem("pick_");
-    if(value) {request= url + "regionCount/"+value};
     xmlHttp.open("GET", request, false);
     xmlHttp.send();
     var obj = JSON.parse(xmlHttp.responseText);
@@ -64,9 +62,6 @@ function getCityTweetsData(dataType){
     }
     var xmlHttp = new XMLHttpRequest();
     var request = url+"tweet_data/" + data_name +"/"+ dataType
-    var value = localStorage.getItem("pick_")
-    if(value) {request= url+"tweet_data/"+value+"/"+dataType}
-
     console.log(request)
     xmlHttp.open("GET", request, false);
     xmlHttp.send();
@@ -76,15 +71,4 @@ function getCityTweetsData(dataType){
 };
 
 
-function getCityData(){
-    data_name = document.getElementById("selectCity").value
-    var xmlHttp = new XMLHttpRequest();
-    var request = url+"aurin/Melbourne/lung_cancer.json"
-    console.log(request)
-    xmlHttp.open("GET", request, false);
-    xmlHttp.send();
-    var obj = JSON.parse(xmlHttp.responseText);
-    console.log(obj)
-    return obj;
-};
 
