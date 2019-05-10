@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regionsData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dataRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dataRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/regionsMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/regionsMap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebPage/regionsMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/../WebPage/regionsMap.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,23 +50,23 @@
     <session id="1314042803">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="4" />
-          <entry key="html" value="10" />
-          <entry key="js" value="5" />
-          <entry key="json" value="12" />
+          <entry key="html" value="25" />
+          <entry key="js" value="8" />
+          <entry key="json" value="30" />
           <entry key="png" value="3" />
           <entry key="py" value="27" />
         </counts>
@@ -68,27 +74,27 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="10" />
+          <entry key="HTML" value="25" />
           <entry key="Image" value="3" />
-          <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="5" />
+          <entry key="JSON" value="30" />
+          <entry key="JavaScript" value="8" />
           <entry key="Python" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="135" />
-          <entry key="html" value="601" />
-          <entry key="js" value="571" />
-          <entry key="py" value="2829" />
+          <entry key="html" value="2141" />
+          <entry key="js" value="911" />
+          <entry key="py" value="6906" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="135" />
-          <entry key="HTML" value="601" />
-          <entry key="JavaScript" value="571" />
-          <entry key="Python" value="2829" />
+          <entry key="HTML" value="2141" />
+          <entry key="JavaScript" value="911" />
+          <entry key="Python" value="6906" />
         </counts>
       </usages-collector>
     </session>
@@ -98,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1126">
-              <caret line="158" column="26" lean-forward="true" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="26" />
+            <state relative-caret-position="175">
+              <caret line="230" column="49" lean-forward="true" selection-start-line="230" selection-start-column="49" selection-end-line="230" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -107,32 +113,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-62">
-              <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+            <state relative-caret-position="276">
+              <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
-                <marker date="1557057714790" expanded="true" signature="1134:1341" ph="..." />
-                <marker date="1557057714790" expanded="true" signature="1278:1279" ph="..." />
-                <marker date="1557057714790" expanded="true" signature="2131:2133" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="1081:1087" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="1230:1474" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="1362:1363" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="5080:5085" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="6429:6473" ph="..." />
+                <marker date="1557484928985" expanded="true" signature="6471:6473" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/overweight.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret column="319" selection-start-column="283" selection-end-column="319" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/charts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+              <folding>
+                <element signature="n#style#0;n#hr#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+            <state relative-caret-position="177">
+              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -148,35 +170,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coordinates</find>
-      <find>Point</find>
-      <find>location</find>
-      <find>proper</find>
-      <find>0.20833333333333334</find>
-      <find>sentiment_score</find>
-      <find>print</find>
-      <find>load</find>
-      <find>img</find>
-      <find>loadData2Regions</find>
-      <find>map1</find>
-      <find>map2</find>
-      <find>animaltion</find>
-      <find>Welcome</find>
-      <find>href</find>
-      <find>nav-link</find>
-      <find>learn</find>
-      <find>mytext1</find>
-      <find>js</find>
-      <find>data</find>
-      <find>url</find>
-      <find>statistic</find>
-      <find>dataReq</find>
       <find>sentiment_</find>
       <find>console</find>
       <find>select</find>
       <find>getRe</find>
       <find>tool</find>
+      <find>Choropleth</find>
+      <find>Leaf</find>
+      <find>num</find>
+      <find>update</find>
+      <find>h5</find>
+      <find>STATE_NAME</find>
+      <find>h4</find>
+      <find>STATE_CODE</find>
+      <find>print</find>
+      <find>NSW</find>
+      <find>Unincorporated NSW</find>
+      <find>Bar</find>
+      <find>selectData</find>
+      <find>getCityData</find>
+      <find>Smoking</find>
+      <find>ge</find>
+      <find>getLastSelectedCity()</find>
+      <find>getPlaceValue</find>
+      <find>getCityTweetData</find>
+      <find>key</find>
+      <find>getPlaceValue()</find>
+      <find>Number</find>
+      <find>Adelaide</find>
+      <find>Fastfood</find>
+      <find>Degree</find>
     </findStrings>
+    <replaceStrings>
+      <replace>CITY_CODE</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -196,18 +223,22 @@
         <option value="$PROJECT_DIR$/static/cover.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/js/toolBar.js" />
-        <option value="$PROJECT_DIR$/templates/regionsMap.html" />
-        <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
-        <option value="$PROJECT_DIR$/Server.py" />
         <option value="$PROJECT_DIR$/templates/map.html" />
+        <option value="$PROJECT_DIR$/states.js" />
+        <option value="$PROJECT_DIR$/states.json" />
+        <option value="$PROJECT_DIR$/regionToCity.json" />
+        <option value="$PROJECT_DIR$/templates/regionsMap.html" />
+        <option value="$PROJECT_DIR$/Server.py" />
+        <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
+        <option value="$PROJECT_DIR$/templates/charts.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="120" />
-    <option name="y" value="24" />
-    <option name="width" value="1352" />
-    <option name="height" value="826" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="217" />
+    <option name="y" value="34" />
+    <option name="width" value="1169" />
+    <option name="height" value="792" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -239,7 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,15 +288,11 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,9 +301,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -415,23 +441,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="120" y="24" width="1352" height="826" extended-state="0" />
+    <frame x="217" y="34" width="1169" height="792" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7707948" visible="true" weight="0.14500375" />
-      <window_info id="Structure" order="1" sideWeight="0.22920518" side_tool="true" visible="true" weight="0.14500375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.66871166" visible="true" weight="0.16811846" />
+      <window_info id="Structure" order="1" sideWeight="0.33128834" side_tool="true" visible="true" weight="0.16811846" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2629428" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32714286" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6437282" visible="true" weight="0.3014286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33787465" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32977098" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32977098" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.35627177" side_tool="true" visible="true" weight="0.3014286" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32970026" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -520,16 +546,7 @@
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/aus_regions.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DbCalculation.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/DbCalculation.py" />
     <entry file="file://$PROJECT_DIR$/static/img/map2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -551,67 +568,117 @@
     <entry file="file://$PROJECT_DIR$/static/js/toolBar.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/regionsData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret column="34883" selection-start-column="34864" selection-end-column="34883" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/regionsData.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="130" column="17" selection-start-line="130" selection-start-column="17" selection-end-line="130" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MapRegion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MapRegion.py" />
     <entry file="file://$PROJECT_DIR$/static/mapCover.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/family_violence.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regionsData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aus_regions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/states.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-201">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regionToCity.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14374" selection-start-column="14374" selection-end-column="14374" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lung_cancer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="49919" selection-start-column="49895" selection-end-column="49919" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/high_blood_pressure.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret column="1000" selection-start-column="952" selection-end-column="1000" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+        <state relative-caret-position="276">
+          <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <marker date="1557057714790" expanded="true" signature="1134:1341" ph="..." />
-            <marker date="1557057714790" expanded="true" signature="1278:1279" ph="..." />
-            <marker date="1557057714790" expanded="true" signature="2131:2133" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="1081:1087" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="1230:1474" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="1362:1363" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="5080:5085" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="6429:6473" ph="..." />
+            <marker date="1557484928985" expanded="true" signature="6471:6473" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1126">
-          <caret line="158" column="26" lean-forward="true" selection-start-line="158" selection-start-column="26" selection-end-line="158" selection-end-column="26" />
+        <state relative-caret-position="175">
+          <caret line="230" column="49" lean-forward="true" selection-start-line="230" selection-start-column="49" selection-end-line="230" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/map.html">
+    <entry file="file://$PROJECT_DIR$/overweight.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+        <state relative-caret-position="45">
+          <caret column="319" selection-start-column="283" selection-end-column="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/charts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#hr#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="56" />
         </state>
       </provider>
     </entry>
