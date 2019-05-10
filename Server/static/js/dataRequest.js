@@ -22,13 +22,18 @@ function reload(){
 };
 
 function getRegionView(){
-    data_name = document.getElementById("selectData").value
-    document.getElementById("selectData").value = data_name
+    data_name = document.getElementById("selectData").value;
+    if (!data_name){
+        console.log(data_name, "no somking data")
+        data_name = "Smoking";
+        document.getElementById("selectData").value = data_name;
+    }
+    document.getElementById("selectData").value = data_name;
     var xmlHttp = new XMLHttpRequest();
-    var request = url+ "regionCount/"+data_name
-    console.log(request)
-    var value = localStorage.getItem("pick_")
-    if(value) {request= url + "regionCount/"+value}
+    var request = url+ "regionCount/"+data_name;
+    console.log(request);
+    var value = localStorage.getItem("pick_");
+    if(value) {request= url + "regionCount/"+value};
     xmlHttp.open("GET", request, false);
     xmlHttp.send();
     var obj = JSON.parse(xmlHttp.responseText);
@@ -38,7 +43,6 @@ function getRegionView(){
 
 
 function reloadChart(){
-    console.log("hihihi")
     pick_ = document.getElementById("selectCity").value;
     localStorage.pick_ = pick_
     pick_ = localStorage.getItem("pick_");
@@ -53,8 +57,11 @@ function getLastSelectedCity(){
 
 function getCityTweetsData(dataType){
     data_name = document.getElementById("selectCity").value
-    console.log("hi there" +data_name)
-    
+      if (!data_name){
+        console.log(data_name, "no city data")
+        data_name = "Melbourne";
+        document.getElementById("selectCity").value = data_name;
+    }
     var xmlHttp = new XMLHttpRequest();
     var request = url+"tweet_data/" + data_name +"/"+ dataType
     var value = localStorage.getItem("pick_")

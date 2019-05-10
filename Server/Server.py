@@ -122,7 +122,6 @@ class Db:
                             regionName = i['key']
                             value = i['value']['portion']
                             result.append([regionName, value])
-        print(result1)
         return result[:10], result1[:10]
 
 
@@ -215,7 +214,6 @@ def getAurinCityData(city, type):
 @app.route('/tweet_data/<string:city>/<string:data_name>/', methods=["GET"])
 def getTweetsData(city, data_name):
     db = Db("tweets")
-    print(city)
     if data_name == "Smoking":
         smoking_data = urllib.request.urlopen(smoking_url).read().decode()
         result = db.getCityTweetData(city, json.loads(smoking_data),"lung_cancer.json", 'lung_canc_2006_2010_num')
@@ -234,7 +232,6 @@ def getTweetsData(city, data_name):
 
 @app.route('/regionCount/<string:data_name>', methods=["GET"])
 def smokeRegionCount(data_name):
-    print(data_name)
     db = Db("result")
     result=""
     if data_name == "Smoking":
