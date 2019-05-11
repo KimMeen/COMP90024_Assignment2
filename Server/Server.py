@@ -50,20 +50,23 @@ class Db:
 
 
     # map the data into the framework of the map
-    def loadData2Regions(self,data, analytics_data, key):
+    def loadData2Regions(self, data, analytics_data, key):
         with open('aus_regions.json') as f:
             regions = json.load(f)
         for r in regions['features']:
             res = self.getPlaceValue(data, analytics_data, r['properties']['Name'], key)
             if not res is None:
                 value1, value2, value3 = res
-                r['aurin_num'] = value1
+                if value1 == 0 or value1 == None:
+                    r['aurin_num'] = "no data in this area"
+                else:
+                    r['aurin_num'] = value1
                 r['pos_num'] = value2
                 r['neg_num'] = value3
             else:
-                r['aurin_num'] = None
-                r['pos_num'] = value2
-                r['neg_num'] = value3
+                r['aurin_num'] = "no data in this area"
+                r['pos_num'] = 0
+                r['neg_num'] = 0
         return regions
 
     # get the related value of the place
@@ -86,23 +89,6 @@ class Db:
         for i in data['rows']:
             dic[i['key']] = i['value']
         return dic
-
-    # get aurin data with the mapped city name
-    def getCityAurinData(self, city, stat):
-        result = []
-        with open("regionToCity.json") as f:
-            dict = json.load(f)
-        with open(stat) as f:
-            data = json.load(f)
-        for i in data['features']:
-            regionName = i['properties']['lga_name']
-            if regionName in dict and not i['properties']['lung_canc_2006_2010_num'] == None:
-                if dict[regionName] == city:
-                    x = i['properties']['lga_name']
-                    value = i['properties']['lung_canc_2006_2010_num']
-                    result.append([x,value])
-        result.sort(key=lambda x: x[1], reverse=True )
-        return result[:10]
 
     def getCityTweetData(self, city, stat, aurin, key):
         result = []
@@ -231,15 +217,6 @@ def getAllFromDB(db_name):
     return res
 
 
-@app.route('/aurin/<string:city>/<string:type>', methods=["GET"])
-def getAurinCityData(city, type):
-    db = Db('tweets')
-    res = flask.make_response(flask.jsonify(db.getCityAurinData(city, type)))
-    res.headers['Access-Control-Allow-Origin'] = '*'
-    res.headers['Access-Control-Allow-Methods'] = 'GET'
-    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
-    return res
-
 @app.route('/tweet_data/<string:city>/<string:data_name>/', methods=["GET"])
 def getTweetsData(city, data_name):
     db = Db("tweets")
@@ -290,4 +267,4 @@ def smokeRegionCount(data_name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port = 8080, debug=True)
+    app.run(host='127.0.0.1', port = 8080, debug=True)

@@ -39,6 +39,11 @@
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
 			border-radius: 5px; }
 
+			.info h2 {
+				margin: 0 0 5px;
+				color: #777; }
+
+
 			.info h4 {
 				margin: 0 0 5px;
 				color: #777; }
@@ -146,9 +151,11 @@
 		tweetsType = "Degree of affection : Alcohol (Tweets) "
 	}
 	info.update = function (props) {
+			console.log(props)
+
 			this._div.innerHTML = '<h4>' + titleText + '</h4>' +  (props ?
 			'<b>' + props.properties.Name + '</b><br/>' + props.aurin_num: ' ') +
-			 '<br><br><h5>' + tweetsType +'</h5>' + '<h6>' + "Portion of Positive sentiment"+ '</h6>'+
+			 '<br><br><h4>' + tweetsType +'</h4>' + '<h6>' + "Portion of Positive sentiment"+ '</h6>'+
 			 (props ? + props.pos_num: ' ')
 			 +'<h6>' + "Portion of Negative sentiment"+ '</h6>' +
 			 (props ? + props.neg_num: ' ')

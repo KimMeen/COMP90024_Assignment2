@@ -75,7 +75,7 @@
 <script>
     function getMapData(){
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", 'http://172.26.37.209:8080/data', false);
+        xmlHttp.open("GET", 'http://127.0.0.1:8080/data', false);
         xmlHttp.send();
         var obj = JSON.parse(xmlHttp.responseText);
         return obj;
@@ -119,11 +119,17 @@
         var markers = new L.MarkerClusterGroup();
         for (var i = 0; i < dataObj.rows.length; i++) {
             var a = dataObj.rows[i].key;
-            var description = "Sentiment label : "+ a.label +'<br>'
+            var labelText = ""
+            if (a.label == 0){
+                labelText = "Positive"
+            }else{
+                labelText = "Negative"
+            }
+            var description = "Sentiment label : "+ labelText +'<br>'
             +"Fastfood score : " + a.fastfood_score + '<br>'
             +"Smoking score : " + a.smoking_score + '<br>'
             +"Alcohol score : "+a.alcohols_score;
-            console.log(description)
+
             if (a.fastfood_score > 0){
                myIcon = fastFood
             }else if (a.smoking_score > 0){
