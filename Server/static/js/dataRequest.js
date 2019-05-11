@@ -61,3 +61,14 @@ function getPieChartData(){
 
 
 
+function getCitySentData(){
+    city = document.getElementById("selectCity").value
+    var xmlHttp = new XMLHttpRequest();
+    var request = url+"citySentData/"+city
+    console.log(request)
+    xmlHttp.open("GET", request, false);
+    xmlHttp.send();
+    var obj = JSON.parse(xmlHttp.responseText);
+    return obj;
+}
+

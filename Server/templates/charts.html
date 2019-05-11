@@ -26,12 +26,20 @@
     padding: 0;
 		margin: 0 auto;
 	}
+	.container2 {
+    width: 100%;
+    height: 1000px;
+    margin: 0;
+    padding: 0;
+		margin: 0 auto;
+	}
+
 	ul li a{
 			margin-right: 20px;
 	}
 </style>
 </head>
-<body onload = 'getLastSelectedCity()'>
+<body>
 	<nav class="navbar navbar-expand-sm  navbar-light bg-light">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -78,6 +86,10 @@
 		</div>
  </nav>
 	 <div class="container1" id = "container0"></div>
+	<div class="container2" id="container2"></div>
+	<br><br>
+	<hr>
+	<br><br>
   <div class="container1" id = "container"></div>
 	  <div class="container1" id="container1"></div>
 <script>
@@ -87,6 +99,8 @@ function drawPie(chartData){
 	// create a pie chart and set the data
 	chart = anychart.pie(chartData);
 	chart.title("Smoking, Alcohol, FastFood (All Cities)");
+
+	chart.animation(true);
 	/* set the inner radius
 	(to turn the pie chart into a doughnut chart)*/
 	chart.innerRadius("30%");
@@ -99,7 +113,7 @@ function drawPie(chartData){
 }
 
 function drawChart(data0, title, container){
-		var data = anychart.data.set(data0);
+	var data = anychart.data.set(data0);
     // create a chart
     var chart = anychart.bar();
     // create a bar series and set the data
@@ -123,21 +137,20 @@ function drawMultChart(data, title, container){
     var seriesData_1 = data.mapAs({x: 0, value: 1});
     var seriesData_2 = data.mapAs({x: 0, value: 2});
     var chart = anychart.bar();
-    chart.animation(true);
     var series1 = chart.bar(seriesData_1);
     series1.name("Positive Sentiment Tweets Portion");
     var series2 = chart.bar(seriesData_2);
     series2.name("Negative Sentiment Tweets Portion");
-
     series1.normal().fill("#00cc99", 0.3);
     series2.normal().fill("#C93756", 0.3);
 
-    chart.barsPadding(-0.5);
+    chart.barsPadding(0.2);
     chart.barGroupsPadding(2);
     chart.title(title);
     chart.xAxis().title("Regions");
     chart.yAxis().title("Portion");
     chart.container("container");
+    chart.animation(true);
     chart.draw();
 }
 
@@ -146,6 +159,10 @@ function selectChart(){
 		console.log(chart)
 		document.getElementById("container").innerHTML = "";
 		document.getElementById("container1").innerHTML = "";
+		document.getElementById("container2").innerHTML = "";
+		var sentData = getCitySentData()
+		colChart(sentData)
+
 		if (chart == "Smoking"){
 			var smoking = getCityTweetsData("Smoking")
 			drawMultChart(smoking[0], "Degree of affection : Smoking", "container" )
@@ -161,9 +178,36 @@ function selectChart(){
 		}
 }
 
+
+function colChart(sentData){
+    var data = anychart.data.set(sentData);
+    var seriesData_1 = data.mapAs({x: 0, value: 1});
+    var seriesData_2 = data.mapAs({x: 0, value: 2});
+    var chart = anychart.bar();
+    var series1 = chart.bar(seriesData_1);
+    series1.name("Positive Sentiment Tweets Number");
+    var series2 = chart.bar(seriesData_2);
+    series2.name("Negative Sentiment Tweets Number");
+    series1.normal().fill("#00cc99", 0.3);
+    series2.normal().fill("#C93756", 0.3);
+    chart.title("Positive Sentiment vs Negative Sentiment (Tweets Number)");
+    chart.barsPadding(0.2);
+    chart.barGroupsPadding(2);
+    chart.xAxis().title("Regions");
+    chart.yAxis().title("Number of Twitts");
+    chart.container("container2");
+    chart.animation(true);
+    chart.draw();
+}
+
+
 anychart.onDocumentReady(function () {
 	var pieChartData = getPieChartData()
 	drawPie(pieChartData)
+
+	var sentData = getCitySentData()
+	colChart(sentData)
+
 	var smoking = getCityTweetsData("Smoking")
 	drawMultChart(smoking[0], "Degree of affection : Smoking", "container")
 	drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")

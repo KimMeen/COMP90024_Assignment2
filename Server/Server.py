@@ -36,7 +36,6 @@ class Db:
                 list.append(self.db[doc])
         return self.db
 
-
     """
     add a data entry to a database
     """
@@ -58,8 +57,6 @@ class Db:
             res = self.getPlaceValue(data, analytics_data, r['properties']['Name'], key)
             if not res is None:
                 value1, value2, value3 = res
-                print(key)
-                print(value1)
                 r['aurin_num'] = value1
                 r['pos_num'] = value2
                 r['neg_num'] = value3
@@ -123,29 +120,25 @@ class Db:
                         if aurinRegionName == i['key'] and not j['properties'][key] == None:
                             result1.append([aurinRegionName, j['properties'][key]])
                             regionName = i['key']
-                            print(i['value'])
                             value1 = i['value']['positive_portion']
                             value2 = i['value']['nagative_portion']
                             result.append([regionName, value1, value2 ])
         return result[:10], result1[:10]
 
 
-    def getCombineData(self, city, stat, key):
+    def getCitySentCount(self, city, stat):
         result = []
         with open("regionToCity.json") as f:
             dict = json.load(f)
-        with open(stat) as f:
-            data = json.load(f)
+        data = json.loads(stat)
 
-        for i in stat["rows"]:
+        for i in data["rows"]:
             if i['key'] in dict:
                 if dict[i['key']] == city:
                     regionName = i['key']
-                    value = i['value']
-                    for i in data['features']:
-                        if regionName == i['properties']['lga_name'] and not i[key] == None:
-                            value2 = i['properties'][key]
-                            result.append([regionName, value, value2])
+                    value1 = i['value']['pos_count']
+                    value2 = i['value']['neg_count']
+                    result.append([regionName, value1, value2])
         return result
 
     # convert the region name into city name
@@ -168,11 +161,12 @@ class Db:
         return json.dumps(data)
 
 
+
 smoking_url = "http://172.26.37.209:5984/results/_design/filter/_view/smoking?reduce=true&group_level=1&skip=0"
 fastfood_url = "http://172.26.37.209:5984/results/_design/filter/_view/fastfood?reduce=true&group_level=1&skip=0"
-alcohol_ulr = "http://172.26.37.209:5984/results/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
-general_ulr = "http://172.26.37.207:5984/results/_design/filter/_view/counts?reduce=true&group_level=1&skip=0"
-
+alcohol_url = "http://172.26.37.209:5984/results/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
+general_url = "http://172.26.37.207:5984/results/_design/filter/_view/counts?reduce=true&group_level=1&skip=0"
+sentiment_url = "http://172.26.37.207:5984/results/_design/filter/_view/sentiment_count?reduce=true&group_level=1"
 
 @app.route('/index')
 def home():
@@ -192,7 +186,7 @@ def goToChartPage():
 
 @app.route('/data')
 def getData():
-    d = Db('result')
+    d = Db('results')
     result = d.getHighRelevanceView()
     ans = flask.make_response(flask.jsonify(result))
     ans.headers['Access-Control-Allow-Origin'] = '*'
@@ -202,11 +196,23 @@ def getData():
 
 @app.route('/pieChart')
 def getPieChartData():
-    piechart_data = urllib.request.urlopen(general_ulr).read().decode()
+    piechart_data = urllib.request.urlopen(general_url).read().decode()
     p_data = json.loads(piechart_data)
     result = []
     for i in p_data['rows']:
         result.append([i['key'], i['value']])
+    res = flask.make_response(flask.jsonify(result))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Methods'] = 'GET'
+    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return res
+
+
+@app.route('/citySentData/<string:city>')
+def getCitySentData(city):
+    citySentData = urllib.request.urlopen(sentiment_url).read().decode()
+    db = Db("results")
+    result = db.getCitySentCount(city, citySentData)
     res = flask.make_response(flask.jsonify(result))
     res.headers['Access-Control-Allow-Origin'] = '*'
     res.headers['Access-Control-Allow-Methods'] = 'GET'
@@ -244,7 +250,7 @@ def getTweetsData(city, data_name):
         fastfood = urllib.request.urlopen(fastfood_url).read().decode()
         result = db.getCityTweetData(city, json.loads(fastfood), "overweight.json", 'est_ppl_18yrs_plus_obese_2014_15_num')
     elif data_name == "Alcohols":
-        alcohol = urllib.request.urlopen(alcohol_ulr).read().decode()
+        alcohol = urllib.request.urlopen(alcohol_url).read().decode()
         result = db.getCityTweetData(city, json.loads(alcohol), "high_blood_pressure.json",'est_ppl_18yrs_plus_hi_blood_pressure_2014_15_num')
 
     res = flask.make_response(flask.jsonify(result))
@@ -273,7 +279,7 @@ def smokeRegionCount(data_name):
     elif data_name == "Alcohols":
         with open("high_blood_pressure.json") as f:
             jsonData = json.load(f)
-        alcohol = urllib.request.urlopen(alcohol_ulr).read().decode()
+        alcohol = urllib.request.urlopen(alcohol_url).read().decode()
         result = db.loadData2Regions(jsonData, alcohol ,'est_ppl_18yrs_plus_hi_blood_pressure_2014_15_num')
 
     res = flask.make_response(flask.jsonify(result))
@@ -284,4 +290,4 @@ def smokeRegionCount(data_name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port = 8080, debug=True)
+    app.run(host='127.0.0.1', port = 8080, debug=True)

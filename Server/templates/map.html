@@ -119,7 +119,7 @@
         var markers = new L.MarkerClusterGroup();
         for (var i = 0; i < dataObj.rows.length; i++) {
             var a = dataObj.rows[i].key;
-            var description = "Sentiment score : "+ a.probability +'<br>'
+            var description = "Sentiment label : "+ a.label +'<br>'
             +"Fastfood score : " + a.fastfood_score + '<br>'
             +"Smoking score : " + a.smoking_score + '<br>'
             +"Alcohol score : "+a.alcohols_score;
