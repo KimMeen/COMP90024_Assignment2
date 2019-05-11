@@ -1,0 +1,60 @@
+---
+- hosts: all
+  remote_user: ubuntu
+  sudo: true
+  tasks:
+    - name: Ensure proxies is well-configured
+      template:
+        src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/proxy_config
+        dest: /etc/environment
+
+
+    - name: Ensure necessary software is installed
+      apt:
+        name: "{{ packages }}"
+        update_cache: yes
+      vars:
+        packages: 
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+    
+    - name: Get and Add Docker gpg key 
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+  
+    - name: Add Docker apt repository
+      apt_repository:
+        repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
+        state: present
+        update_cache: yes
+      
+    - name: Ensure docker is installed
+      apt:
+        name: "{{ packages }}"
+        update_cache: yes
+      vars:
+        packages: 
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+
+    - name: Ensures Docker configuration Folder exists
+      file: 
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+
+    - name: Ensure docker is well-configured
+      template:
+        src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/docker_config
+        dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+
+    - name: Ensure docker service is restarted
+      service:
+        name: docker
+        state: restarted
+
+    
