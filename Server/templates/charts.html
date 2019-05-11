@@ -62,7 +62,7 @@
 		<li class="nav-item"> <p> &nbsp;&nbsp;&nbsp;&nbsp;</p></li>
 		<li class="nav-item">
 		<select class="browser-default custom-select" id = "selectCity" onchange="selectChart();">
-		<option value="Melbourne">Melbourne</option>
+		<option value="Melbourne" selected>Melbourne</option>
 		<option value="Sydney">Sydney</option>
 		<option value="Brisbane">Brisbane</option>
 		<option value="Adelaide">Adelaide</option>
@@ -77,9 +77,26 @@
 		</div>
 		</div>
  </nav>
+	 <div class="container1" id = "container0"></div>
   <div class="container1" id = "container"></div>
 	  <div class="container1" id="container1"></div>
 <script>
+
+function drawPie(chartData){
+
+	// create a pie chart and set the data
+	chart = anychart.pie(chartData);
+	chart.title("Smoking, Alcohol, FastFood (All Cities)");
+	/* set the inner radius
+	(to turn the pie chart into a doughnut chart)*/
+	chart.innerRadius("30%");
+
+	// set the container id
+	chart.container("container0");
+
+	// initiate drawing the chart
+	chart.draw();
+}
 
 function drawChart(data0, title, container){
 		var data = anychart.data.set(data0);
@@ -92,12 +109,36 @@ function drawChart(data0, title, container){
     chart.title(title);
     // set the titles of the axes
     chart.xAxis().title("Regions");
-    chart.yAxis().title("Portion");
+    chart.yAxis().title("Patients Number");
     // set the container id
     chart.container(container);
     // initiate drawing the chart
     chart.draw();
 
+}
+
+function drawMultChart(data, title, container){
+	// create a data set
+    var data = anychart.data.set(data);
+    var seriesData_1 = data.mapAs({x: 0, value: 1});
+    var seriesData_2 = data.mapAs({x: 0, value: 2});
+    var chart = anychart.bar();
+    chart.animation(true);
+    var series1 = chart.bar(seriesData_1);
+    series1.name("Positive Sentiment Tweets Portion");
+    var series2 = chart.bar(seriesData_2);
+    series2.name("Negative Sentiment Tweets Portion");
+
+    series1.normal().fill("#00cc99", 0.3);
+    series2.normal().fill("#C93756", 0.3);
+
+    chart.barsPadding(-0.5);
+    chart.barGroupsPadding(2);
+    chart.title(title);
+    chart.xAxis().title("Regions");
+    chart.yAxis().title("Portion");
+    chart.container("container");
+    chart.draw();
 }
 
 function selectChart(){
@@ -107,22 +148,24 @@ function selectChart(){
 		document.getElementById("container1").innerHTML = "";
 		if (chart == "Smoking"){
 			var smoking = getCityTweetsData("Smoking")
-			drawChart(smoking[0], "Degree of affection : Smoking", "container")
+			drawMultChart(smoking[0], "Degree of affection : Smoking", "container" )
 			drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")
 		}else if (chart == "Fastfood") {
 			var fastFood = getCityTweetsData("Fastfood")
-			drawChart(fastFood[0], "Degree of affection : Fastfood (Tweets)", "container")
+			drawMultChart(fastFood[0], "Degree of affection : Fastfood (Tweets)", "container")
 			drawChart(fastFood[1], "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity", "container1")
 		}else if (chart == "Alcohols") {
 			var alcohol = getCityTweetsData("Alcohols")
-			drawChart(alcohol[0], "Degree of affection : Alcohol (Tweets)", "container")
+			drawMultChart(alcohol[0], "Degree of affection : Fastfood (Tweets)", "container")
 			drawChart(alcohol[1], "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure", "container1")
 		}
 }
 
 anychart.onDocumentReady(function () {
+	var pieChartData = getPieChartData()
+	drawPie(pieChartData)
 	var smoking = getCityTweetsData("Smoking")
-	drawChart(smoking[0], "Degree of affection : Smoking", "container")
+	drawMultChart(smoking[0], "Degree of affection : Smoking", "container")
 	drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")
 });
 </script>

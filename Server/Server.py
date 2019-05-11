@@ -44,7 +44,8 @@ class Db:
         self.db.save(data)
 
     def getHighRelevanceView(self):
-        contents = urllib.request.urlopen("http://172.26.37.207:5984/results/_design/filter/_view/new-view?skip=0").read().decode()
+        mapData = "http://172.26.37.207:5984/results/_design/filter/_view/mapData?skip=0"
+        contents = urllib.request.urlopen(mapData).read().decode()
         data = json.loads(contents)
         return data
 
@@ -56,12 +57,16 @@ class Db:
         for r in regions['features']:
             res = self.getPlaceValue(data, analytics_data, r['properties']['Name'], key)
             if not res is None:
-                value1, value2 = res
+                value1, value2, value3 = res
+                print(key)
+                print(value1)
                 r['aurin_num'] = value1
-                r['analytics_num'] = value2
+                r['pos_num'] = value2
+                r['neg_num'] = value3
             else:
                 r['aurin_num'] = None
-                r['analytics_num'] = 0
+                r['pos_num'] = value2
+                r['neg_num'] = value3
         return regions
 
     # get the related value of the place
@@ -72,9 +77,9 @@ class Db:
         for i in regions['features']:
             if i['properties']['lga_name'] == regionName:
                 if regionName in analytics_data:
-                    return i['properties'][key], analytics_data[regionName]['portion']
+                    return i['properties'][key], analytics_data[regionName]['positive_portion'], analytics_data[regionName]['nagative_portion']
                 else:
-                    return i['properties'][key], 0
+                    return i['properties'][key], 0, 0
         return None
 
     # parse the map reduce data into dict data structure
@@ -107,8 +112,6 @@ class Db:
         result1 = []
         with open("regionToCity.json") as f:
             dict = json.load(f)
-
-
         with open(aurin) as f:
             aurinData = json.load(f)
 
@@ -120,8 +123,10 @@ class Db:
                         if aurinRegionName == i['key'] and not j['properties'][key] == None:
                             result1.append([aurinRegionName, j['properties'][key]])
                             regionName = i['key']
-                            value = i['value']['portion']
-                            result.append([regionName, value])
+                            print(i['value'])
+                            value1 = i['value']['positive_portion']
+                            value2 = i['value']['nagative_portion']
+                            result.append([regionName, value1, value2 ])
         return result[:10], result1[:10]
 
 
@@ -162,9 +167,13 @@ class Db:
                     break
         return json.dumps(data)
 
-smoking_url = "http://172.26.37.207:5984/results/_design/filter/_view/smoking?reduce=true&group_level=1&skip=0"
-fastfood_url = "http://172.26.37.207:5984/results/_design/filter/_view/fastfood?reduce=true&group_level=1&skip=0"
-alcohol_ulr = "http://172.26.37.207:5984/results/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
+
+smoking_url = "http://172.26.37.209:5984/results/_design/filter/_view/smoking?reduce=true&group_level=1&skip=0"
+fastfood_url = "http://172.26.37.209:5984/results/_design/filter/_view/fastfood?reduce=true&group_level=1&skip=0"
+alcohol_ulr = "http://172.26.37.209:5984/results/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
+general_ulr = "http://172.26.37.207:5984/results/_design/filter/_view/counts?reduce=true&group_level=1&skip=0"
+
+
 @app.route('/index')
 def home():
     return render_template('index.html')
@@ -190,6 +199,20 @@ def getData():
     ans.headers['Access-Control-Allow-Methods'] = 'GET'
     ans.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
     return ans
+
+@app.route('/pieChart')
+def getPieChartData():
+    piechart_data = urllib.request.urlopen(general_ulr).read().decode()
+    p_data = json.loads(piechart_data)
+    result = []
+    for i in p_data['rows']:
+        result.append([i['key'], i['value']])
+    res = flask.make_response(flask.jsonify(result))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Methods'] = 'GET'
+    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
+    return res
+
 
 @app.route('/db/<string:db_name>', methods=["GET"])
 def getAllFromDB(db_name):
@@ -223,6 +246,7 @@ def getTweetsData(city, data_name):
     elif data_name == "Alcohols":
         alcohol = urllib.request.urlopen(alcohol_ulr).read().decode()
         result = db.getCityTweetData(city, json.loads(alcohol), "high_blood_pressure.json",'est_ppl_18yrs_plus_hi_blood_pressure_2014_15_num')
+
     res = flask.make_response(flask.jsonify(result))
     res.headers['Access-Control-Allow-Origin'] = '*'
     res.headers['Access-Control-Allow-Methods'] = 'GET'

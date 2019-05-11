@@ -1,11 +1,11 @@
 
-var url = "http://172.26.37.207:8080/"
+var url = "http://172.26.37.209:5000/"
+
 function getLastSelectedValue(){
      var value = localStorage.getItem("pick_")
      if(value){document.getElementById("selectData").value = value;}
      return value
 }
-
 function getMapData(){
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url + "data", false);
@@ -23,15 +23,12 @@ function reload(){
 
 function getRegionView(){
     data_name = document.getElementById("selectData").value;
-    if (!data_name){
-        console.log(data_name, "no somking data")
-        data_name = "Smoking";
-        document.getElementById("selectData").value = data_name;
-    }
     document.getElementById("selectData").value = data_name;
     var xmlHttp = new XMLHttpRequest();
     var request = url+ "regionCount/"+data_name;
-    console.log(request);
+    var last_data_name = localStorage.getItem("pick_")
+    var value = localStorage.getItem("pick_")
+    if (value) {request = url+ "regionCount/"+last_data_name;}
     xmlHttp.open("GET", request, false);
     xmlHttp.send();
     var obj = JSON.parse(xmlHttp.responseText);
@@ -40,26 +37,8 @@ function getRegionView(){
 };
 
 
-function reloadChart(){
-    pick_ = document.getElementById("selectCity").value;
-    localStorage.pick_ = pick_
-    pick_ = localStorage.getItem("pick_");
-    window.location.reload();
-};
-
-function getLastSelectedCity(){
-     var value = localStorage.getItem("pick_")
-     if(value){document.getElementById("selectCity").value = value;}
-     return value
-}
-
 function getCityTweetsData(dataType){
     data_name = document.getElementById("selectCity").value
-      if (!data_name){
-        console.log(data_name, "no city data")
-        data_name = "Melbourne";
-        document.getElementById("selectCity").value = data_name;
-    }
     var xmlHttp = new XMLHttpRequest();
     var request = url+"tweet_data/" + data_name +"/"+ dataType
     console.log(request)
@@ -69,6 +48,17 @@ function getCityTweetsData(dataType){
     console.log(obj)
     return obj;
 };
+
+
+function getPieChartData(){
+    var xmlHttp = new XMLHttpRequest();
+    var request = url+"pieChart"
+    console.log(request)
+    xmlHttp.open("GET", request, false);
+    xmlHttp.send();
+    var obj = JSON.parse(xmlHttp.responseText);
+    return obj;
+}
 
 
 

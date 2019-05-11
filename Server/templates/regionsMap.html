@@ -47,6 +47,10 @@
 			margin: 0 0 5px;
 				color: #777; }
 
+			.info h6 {
+			margin: 0 0 5px;
+				color: #777; }
+
 		.legend {
 			text-align: left;
 			line-height: 40px;
@@ -133,7 +137,7 @@
 	tweetsType = ""
 	if (title == "Smoking"){
 		titleText = "Lung Cancer 2006-2010 Austrlian Region Statistic : "
-		tweetsType = "Degree of affection : Smoking (Tweets) "
+		tweetsType = "Degree of affection : Smoking "
 	}else if (title == "Fastfood"){
 		titleText = "Estimated number of overweight people : "
 		tweetsType = "Degree of affection : Fastfood (Tweets)"
@@ -144,8 +148,11 @@
 	info.update = function (props) {
 			this._div.innerHTML = '<h4>' + titleText + '</h4>' +  (props ?
 			'<b>' + props.properties.Name + '</b><br/>' + props.aurin_num: ' ') +
-			 '<h5>' + tweetsType +'</h5>' +
-			 (props ? + props.analytics_num: ' ');
+			 '<h5>' + tweetsType +'</h5>' + '<h6>' + "Portion of Positive sentiment"+ '</h6>'+
+			 (props ? + props.pos_num: ' ')
+			 +'<h6>' + "Portion of Negative sentiment"+ '</h6>' +
+			 (props ? + props.neg_num: ' ')
+			 ;
 	};
 
 	info.addTo(map);
