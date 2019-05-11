@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[5]:
+
 import couchdb
 import json
 import sys
@@ -10,6 +12,12 @@ sys.path.append('./topic analysis')
 import scorer
 sys.path.append('../util')
 import text_util
+# sys.path.append('../util')
+# import MapRegion
+
+
+# In[6]:
+
 
 '''
     Get the source db(the db created by harverster)
