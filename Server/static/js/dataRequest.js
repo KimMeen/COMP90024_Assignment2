@@ -1,5 +1,4 @@
-
-var url = "http://172.26.37.209:5000/"
+var url = "http://172.26.37.209:8080/"
 
 function getLastSelectedValue(){
      var value = localStorage.getItem("pick_")
