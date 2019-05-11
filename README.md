@@ -9,3 +9,4 @@
 -----
 ## Sentiment analysis API
 ![API](https://github.com/KimMeen/COMP90024_Assignment2/blob/master/docs/WeChat%20Screenshot_20190425172805.png)
+
