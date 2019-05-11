@@ -5,6 +5,6 @@
    
    "DB":[
        "tweets",
-       "results"
+       "results_latest"
    ]
 }
