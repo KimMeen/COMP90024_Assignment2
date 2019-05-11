@@ -32,7 +32,7 @@ class sentianalyser:
     
     def __init__(self, modelpath, freqdist, stemmer = False):
         self.freqdist = freqdist
-        self.max_length = 40
+        self.max_length = 60
         self.vocab_size = 90000
         self.use_stemmer = stemmer
         self.label = ['NEGATIVE', 'POSITIVE']
