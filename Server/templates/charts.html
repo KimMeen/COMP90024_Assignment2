@@ -96,9 +96,9 @@
 	<br><br>
 	<hr>
 	<br><br>
-	<h4 id ="degree_title" align="center">Degree of affection : Smoking  - Primary regions</h4>
+	<h4 id ="degree_title" align="center">Degree of affection : Smoking （Tweets）  - Primary Regions</h4>
   <div class="container1" id = "container"></div>
-	<h4 id ="aurin_title" align="center">AURIN Statistic - Number of Lung Cancer Patients  - Primary regions </h4>
+	<h4 id ="aurin_title" align="center">AURIN Statistic - Number of Lung Cancer Patients  - Primary Regions </h4>
 	  <div class="container1" id="container1"></div>
 <script>
 
@@ -172,20 +172,20 @@ function selectChart(){
 
 		if (chart == "Smoking"){
 			var smoking = getCityTweetsData("Smoking")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Smoking (Tweets) - Primary regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Number of Lung Cancer Patients - Primary regions"
+			document.getElementById("degree_title").innerHTML = "Degree of affection : Smoking (Tweets) - Primary Regions"
+			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Number of Lung Cancer Patients - Primary Regions"
 			drawMultChart(smoking[0], "Degree of affection : Smoking", "container" )
 			drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")
 		}else if (chart == "Fastfood") {
 			var fastFood = getCityTweetsData("Fastfood")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Fastfood (Tweets) - Primary regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity - Primary regions"
+			document.getElementById("degree_title").innerHTML = "Degree of affection : Fastfood (Tweets) - Primary Regions"
+			document.getElementById("aurin_title").innerHTML = "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity - Primary Regions"
 			drawMultChart(fastFood[0], "Degree of affection : Fastfood (Tweets)", "container")
 			drawChart(fastFood[1], "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity", "container1")
 		}else if (chart == "Alcohols") {
 			var alcohol = getCityTweetsData("Alcohols")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Alcohols (Tweets)  - Primary regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure  - Primary regions"
+			document.getElementById("degree_title").innerHTML = "Degree of affection : Alcohols (Tweets)  - Primary Regions"
+			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure  - Primary Regions"
 			drawMultChart(alcohol[0], "Degree of affection : Alcohols (Tweets)", "container")
 			drawChart(alcohol[1], "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure", "container1")
 		}
