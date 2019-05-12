@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/dataRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dataRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/charts.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,17 +80,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="135" />
-          <entry key="html" value="3118" />
-          <entry key="js" value="1300" />
-          <entry key="py" value="7656" />
+          <entry key="html" value="3761" />
+          <entry key="js" value="1302" />
+          <entry key="py" value="7875" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="135" />
-          <entry key="HTML" value="3118" />
-          <entry key="JavaScript" value="1300" />
-          <entry key="Python" value="7656" />
+          <entry key="HTML" value="3761" />
+          <entry key="JavaScript" value="1302" />
+          <entry key="Python" value="7875" />
         </counts>
       </usages-collector>
     </session>
@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2447">
-              <caret line="75" column="39" lean-forward="true" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="39" />
+            <state relative-caret-position="198">
+              <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -112,21 +112,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1746">
-              <caret line="292" column="25" selection-start-line="292" selection-start-column="25" selection-end-line="292" selection-end-column="25" />
+            <state relative-caret-position="377">
+              <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
-                <marker date="1557575358233" expanded="true" signature="1081:1086" ph="..." />
+                <marker date="1557588339062" expanded="true" signature="1081:1086" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/charts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="192" column="72" selection-start-line="192" selection-start-column="72" selection-end-line="192" selection-end-column="72" />
+            <state relative-caret-position="294">
+              <caret line="186" column="117" selection-start-line="186" selection-start-column="117" selection-end-line="186" selection-end-column="117" />
               <folding>
                 <element signature="e#2771#2777#0" expanded="true" />
               </folding>
@@ -134,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="32" lean-forward="true" selection-start-column="28" selection-end-column="32" />
+            <state relative-caret-position="-697">
+              <caret column="31" selection-start-column="18" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -146,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+            <state relative-caret-position="-765">
+              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -163,20 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Unincorporated NSW</find>
-      <find>Bar</find>
-      <find>selectData</find>
-      <find>getCityData</find>
-      <find>Smoking</find>
-      <find>ge</find>
-      <find>getLastSelectedCity()</find>
-      <find>getPlaceValue</find>
-      <find>getCityTweetData</find>
-      <find>key</find>
-      <find>getPlaceValue()</find>
-      <find>Number</find>
-      <find>Adelaide</find>
-      <find>Fastfood</find>
       <find>Degree</find>
       <find>getCity</find>
       <find>analytics_num</find>
@@ -191,8 +177,22 @@
       <find>getCombineData</find>
       <find>result</find>
       <find>results</find>
+      <find>FastFood</find>
+      <find>title</find>
       <find>h4</find>
+      <find>para</find>
+      <find>Twitts</find>
       <find>getCitySentData</find>
+      <find>aurin</find>
+      <find>aurin_num</find>
+      <find>getCityAurinData</find>
+      <find>no data in this area</find>
+      <find>Smoking</find>
+      <find>degree of affection</find>
+      <find>loadData2Regions</find>
+      <find>animation</find>
+      <find>regionCount</find>
+      <find>Vs</find>
     </findStrings>
     <replaceStrings>
       <replace>CITY_CODE</replace>
@@ -220,16 +220,16 @@
         <option value="$PROJECT_DIR$/states.json" />
         <option value="$PROJECT_DIR$/regionToCity.json" />
         <option value="$PROJECT_DIR$/templates/regionsMap.html" />
-        <option value="$PROJECT_DIR$/templates/charts.html" />
+        <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
         <option value="$PROJECT_DIR$/templates/map.html" />
         <option value="$PROJECT_DIR$/Server.py" />
-        <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
+        <option value="$PROJECT_DIR$/templates/charts.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="27" />
-    <option name="y" value="49" />
+    <option name="x" value="214" />
+    <option name="y" value="56" />
     <option name="width" value="1197" />
     <option name="height" value="829" />
   </component>
@@ -439,7 +439,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="49" width="1197" height="829" extended-state="0" />
+    <frame x="214" y="56" width="1197" height="829" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6647834" visible="true" weight="0.16411565" />
@@ -447,14 +447,14 @@
       <window_info id="Favorites" order="2" sideWeight="0.33128834" side_tool="true" weight="0.16811846" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32714286" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6403061" visible="true" weight="0.275441" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6403061" visible="true" weight="0.24559022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33787465" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32977098" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.35969388" side_tool="true" visible="true" weight="0.275441" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.35969388" side_tool="true" weight="0.275441" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32970026" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -626,43 +626,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2447">
-          <caret line="75" column="39" lean-forward="true" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="39" />
+        <state relative-caret-position="198">
+          <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1746">
-          <caret line="292" column="25" selection-start-line="292" selection-start-column="25" selection-end-line="292" selection-end-column="25" />
+        <state relative-caret-position="377">
+          <caret line="270" lean-forward="true" selection-start-line="270" selection-end-line="270" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <marker date="1557575358233" expanded="true" signature="1081:1086" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/charts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="192" column="72" selection-start-line="192" selection-start-column="72" selection-end-line="192" selection-end-column="72" />
-          <folding>
-            <element signature="e#2771#2777#0" expanded="true" />
+            <marker date="1557588339062" expanded="true" signature="1081:1086" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+        <state relative-caret-position="-765">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" lean-forward="true" selection-start-column="28" selection-end-column="32" />
+        <state relative-caret-position="-697">
+          <caret column="31" selection-start-column="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/charts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="186" column="117" selection-start-line="186" selection-start-column="117" selection-end-line="186" selection-end-column="117" />
+          <folding>
+            <element signature="e#2771#2777#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

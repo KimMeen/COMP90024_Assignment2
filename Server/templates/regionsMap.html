@@ -39,6 +39,11 @@
 			box-shadow: 0 0 15px rgba(0,0,0,0.2);
 			border-radius: 5px; }
 
+			.info h2 {
+				margin: 0 0 5px;
+				color: #777; }
+
+
 			.info h4 {
 				margin: 0 0 5px;
 				color: #777; }
@@ -118,7 +123,6 @@
 		maxZoom: 18,
 		id: 'mapbox.streets'
 	})/*.addTo(map)*/;
-	console.log("hi there")
 	var statistic = getRegionView()
 	var map = L.map('map', {center: [-30.69748, 133.88362], zoom: 5, layers: [sentimentMap]});
 	// control that shows state info on hover
@@ -148,7 +152,7 @@
 	info.update = function (props) {
 			this._div.innerHTML = '<h4>' + titleText + '</h4>' +  (props ?
 			'<b>' + props.properties.Name + '</b><br/>' + props.aurin_num: ' ') +
-			 '<h5>' + tweetsType +'</h5>' + '<h6>' + "Portion of Positive sentiment"+ '</h6>'+
+			 '<br><br><h4>' + tweetsType +'</h4>' + '<h6>' + "Portion of Positive sentiment"+ '</h6>'+
 			 (props ? + props.pos_num: ' ')
 			 +'<h6>' + "Portion of Negative sentiment"+ '</h6>' +
 			 (props ? + props.neg_num: ' ')
@@ -158,7 +162,6 @@
 	info.addTo(map);
 	// get color depending on population density value
 	function getColor(d) {
-		console.log(title)
 		if (title == "Smoking"){
 		return d > 1000 ? '#800026' :
 				d > 500  ? '#BD0026' :
