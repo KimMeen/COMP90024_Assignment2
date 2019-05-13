@@ -1,9 +1,9 @@
 ## COMP90024 Cluster and Clould Computing - Assignment2
 ```
 Group 66
-  |-- Minghong Gao ()
+  |-- Minghong Gao (798106)
   |-- Ming Jin (947351)
-  |-- Kangping Xue ()
+  |-- Kangping Xue (878962)
   |-- Ziang Chen ()
   |-- Wenjin Li ()
 ```
@@ -20,6 +20,9 @@ master
 ```
 
 ### Deployment
+`git clone git@github.com:KimMeen/COMP90024_Assignment2.git`
+`cd ./deploy`
+`./deploy.sh`
 
 ### Tweets Harvest
 
