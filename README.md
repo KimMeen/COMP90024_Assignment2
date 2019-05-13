@@ -20,6 +20,7 @@ master
 ```
 
 ### Deployment
+ `chmod -x deploy.sh` 
 `git clone git@github.com:KimMeen/COMP90024_Assignment2.git`
 `cd ./deploy`
 `./deploy.sh`
