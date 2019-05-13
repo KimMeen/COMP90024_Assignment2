@@ -45,4 +45,15 @@ mpirun --allow-run-as-root -np 8 -H master-node:2,slave-node-1:2,slave-node-2:2,
 ```
 After several hours, the analysis results will be stored in `results_latest` table inside of the CouchDB, as the figure shown below.
 ![results_latest](https://github.com/KimMeen/COMP90024_Assignment2/blob/master/docs/results_latest.PNG)
+
 ### Websites
+The Web Server uses flask web framework. There are serveral options for user to deploy/run the appliation on their local development server. In default, the application has specified a app.run method to start the Server. On command line, simply python3 Server or nohup python3 Server to keep the server running on the background
+```
+app.run(host, port, debug, options)
+debug : Defaults to false. If set to true, provides a debug information
+options : to be forwarded to underlying Werkzeug server.
+```
+However, flask’s built-in server is not suitable for production as it doesn’t scale well. If user uses the hosted option to deploy the server for example Heroku, OpenShift, Google App Engine etc. Please refer the below link http://flask.pocoo.org/docs/1.0/deploying/ 
+
+
+
