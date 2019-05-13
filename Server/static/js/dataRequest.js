@@ -1,4 +1,5 @@
-var url = "http://172.26.38.15:8080/"
+var url = 'http://172.26.38.15:8080/'
+
 
 function getLastSelectedValue(){
      var value = localStorage.getItem("pick_")
@@ -72,3 +73,14 @@ function getCitySentData(){
     return obj;
 }
 
+
+function getCityScenarioStat(){
+    city = document.getElementById("selectCase").value
+    var xmlHttp = new XMLHttpRequest();
+    var request = url+"cityScenarioCount/"+city
+    console.log(request)
+    xmlHttp.open("GET", request, false);
+    xmlHttp.send();
+    var obj = JSON.parse(xmlHttp.responseText);
+    return obj;
+}

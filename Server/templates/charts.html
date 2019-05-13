@@ -33,7 +33,11 @@
     padding: 0;
 		margin: 0 auto;
 	}
-
+	.navbar{
+		position: fixed;
+		overflow: hidden;
+		width: 100%;
+	}
 	ul li a{
 			margin-right: 20px;
 	}
@@ -85,21 +89,24 @@
 		</div>
 		</div>
  </nav>
-	<br><br>
+	<br><br><br><br>
 	<h4  align="center">Smoking, Alcohol, Fastfood (Tweets in All Cities)</h4>
 	 <div class="container1" id = "container0"></div>
 	<br><br>
 	<hr>
 	<br><br>
-	<h4 align="center">Positive Sentiment Vs. Negative Sentiment (Tweets Number)</h4>
+
+		<h4 align="center">Positive Sentiment Vs. Negative Sentiment (Tweets Number)</h4>
 	<div class="container2" id="container2"></div>
+
 	<br><br>
 	<hr>
 	<br><br>
-	<h4 id ="degree_title" align="center">Degree of affection : Smoking （Tweets）  - Primary Regions</h4>
-  <div class="container1" id = "container"></div>
-	<h4 id ="aurin_title" align="center">AURIN Statistic - Number of Lung Cancer Patients  - Primary Regions </h4>
-	  <div class="container1" id="container1"></div>
+	<h4  id ="degree_title1" align="center">Degree of Affection : Smoking (All Cities)</h4>
+	 <div class="container1" id = "container5"></div>
+	<h4 id ="aurin_title1" align="center">AURIN Statistic - Incidence Rate of Lung Cancer (All Cities)</h4>
+	 <div class="container1" id = "container6"></div>
+	<br><br>
 <script>
 
 function drawPie(chartData){
@@ -127,13 +134,17 @@ function drawChart(data0, title, container){
     chart.animation(true);
     // set the chart title
     // set the titles of the axes
-    chart.xAxis().title("Regions");
+
+    if (container == "container6"){
+    	chart.xAxis().title("Cities");
+    }else{
+    	chart.xAxis().title("Regions");
+    }
     chart.yAxis().title("Patients Number");
     // set the container id
     chart.container(container);
     // initiate drawing the chart
     chart.draw();
-
 }
 
 function drawMultChart(data, title, container){
@@ -150,9 +161,14 @@ function drawMultChart(data, title, container){
     series2.normal().fill("#C93756", 0.3);
     chart.barsPadding(0.2);
     chart.barGroupsPadding(2);
-    chart.xAxis().title("Regions");
-    chart.yAxis().title("Portion");
-    chart.container("container");
+    if (container == "container5"){
+    	chart.xAxis().title("Cities");
+    	chart.yAxis().title("Number");
+    }else{
+    	chart.xAxis().title("Regions");
+    	chart.yAxis().title("Portion");
+    }
+    chart.container(container);
     chart.animation(true);
     chart.draw();
 }
@@ -166,27 +182,26 @@ function twoCall(){
 
 function selectChart(){
 		var chart = document.getElementById("selectCase").value;
-		document.getElementById("container").innerHTML = "";
-		document.getElementById("container1").innerHTML = "";
 
+		document.getElementById("container5").innerHTML = "";
+		document.getElementById("container6").innerHTML = "";
+
+		var cityScenario = getCityScenarioStat()
+		console.log(cityScenario[0])
+		drawMultChart(cityScenario[0],"", "container5")
+		drawChart(cityScenario[1], "", "container6")
 		if (chart == "Smoking"){
 			var smoking = getCityTweetsData("Smoking")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Smoking (Tweets) - Primary Regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Number of Lung Cancer Patients - Primary Regions"
-			drawMultChart(smoking[0], "Degree of affection : Smoking", "container" )
-			drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")
+			document.getElementById("degree_title1").innerHTML = "Degree of Affection : Smoking (All Cities)"
+			document.getElementById("aurin_title1").innerHTML = "AURIN Statistic - Incidence Rate of Lung Cancer (All Cities)"
 		}else if (chart == "Fastfood") {
 			var fastFood = getCityTweetsData("Fastfood")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Fastfood (Tweets) - Primary Regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity - Primary Regions"
-			drawMultChart(fastFood[0], "Degree of affection : Fastfood (Tweets)", "container")
-			drawChart(fastFood[1], "Aurin Statistic -  Estimated number of people aged 18 years old and over who have obesity", "container1")
+			document.getElementById("degree_title1").innerHTML = "Degree of Affection : Fastfood (All Cities)"
+			document.getElementById("aurin_title1").innerHTML = "AURIN Statistic - Incidence Rate of Obesity (All Cities)"
 		}else if (chart == "Alcohols") {
 			var alcohol = getCityTweetsData("Alcohols")
-			document.getElementById("degree_title").innerHTML = "Degree of affection : Alcohols (Tweets)  - Primary Regions"
-			document.getElementById("aurin_title").innerHTML = "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure  - Primary Regions"
-			drawMultChart(alcohol[0], "Degree of affection : Alcohols (Tweets)", "container")
-			drawChart(alcohol[1], "Aurin Statistic - Estimated number of people aged 18 years old and over who had high blood pressure", "container1")
+			document.getElementById("degree_title1").innerHTML = "Degree of Affection : Alcohols (All Cities)"
+			document.getElementById("aurin_title1").innerHTML = "Aurin Statistic - Incidence Rate of high blood pressure  (All Cities)"
 		}
 }
 
@@ -215,13 +230,12 @@ function colChart(sentData){
 anychart.onDocumentReady(function () {
 	var pieChartData = getPieChartData()
 	drawPie(pieChartData)
+	var cityScenario = getCityScenarioStat()
+	drawMultChart(cityScenario[0],"", "container5")
+	drawChart(cityScenario[1], "", "container6")
 
 	var sentData = getCitySentData()
 	colChart(sentData)
-
-	var smoking = getCityTweetsData("Smoking")
-	drawMultChart(smoking[0], "Degree of affection : Smoking (Tweets)", "container")
-	drawChart(smoking[1], "Aurin Statistic - Number of Lung Cancer Patients", "container1")
 });
 </script>
 </body>

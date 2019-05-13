@@ -37,14 +37,15 @@
 }
 </style>
 </head>
-<body>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="{{ url_for('static', filename='js/dataRequest.js') }}"></script>
 <script src="{{ url_for('static', filename='js/toolBar.js') }}"></script>
+<body>
 <nav class="navbar navbar-expand-sm   navbar-light bg-light">
+
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
    <span class="navbar-toggler-icon"></span>
  </button>
@@ -73,6 +74,7 @@
 <div id='map'></div>
 
 <script>
+
     function getMapData(){
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", 'http://172.26.38.15:8080/data', false);
