@@ -25,7 +25,7 @@ master
 `./deploy.sh`
 
 ### Tweets Harvest
-
+To run the tweets harvset, be sure to include twitter_config.py and harvester under a same directory, the run command python3 harvester.py
 ### Analysis
 Firstly, we predefine the CouchDB configuration file (db_config.json) under ./analysis directory:
 ```
