@@ -13,7 +13,7 @@ class Db:
     def __init__(self, dbname):
         user = "admin"
         password = "admin"
-        self.couchserver = couchdb.Server("http://%s:%s@172.26.37.207:5984/" % (user, password))
+        self.couchserver = couchdb.Server("http://%s:%s@172.26.38.8:5984/" % (user, password))
         self.selectDb(dbname)
     """
     Select db by a given name
@@ -45,7 +45,7 @@ class Db:
     get the topic-related tweets set
     """
     def getHighRelevanceView(self):
-        mapData = "http://172.26.37.207:5984/results_latest/_design/filter/_view/mapData?skip=0&reduce=false"
+        mapData = "http://172.26.38.8:5984/results/_design/filter/_view/mapData?skip=0&reduce=false"
         contents = urllib.request.urlopen(mapData).read().decode()
         data = json.loads(contents)
         return data
@@ -161,11 +161,11 @@ class Db:
 
 
 
-smoking_url = "http://172.26.37.207:5984/results_latest/_design/filter/_view/smoking?reduce=true&group_level=1&skip=0"
-fastfood_url = "http://172.26.37.207:5984/results_latest/_design/filter/_view/fastfood?reduce=true&group_level=1&skip=0"
-alcohol_url = "http://172.26.37.207:5984/results_latest/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
-general_url = "http://172.26.37.207:5984/results_latest/_design/filter/_view/counts?reduce=true&group_level=1&skip=0"
-sentiment_url = "http://172.26.37.207:5984/results_latest/_design/filter/_view/sentiment_count?reduce=true&group_level=1&skip=0"
+smoking_url = "http://172.26.38.8:5984/results/_design/filter/_view/smoking?reduce=true&group_level=1&skip=0"
+fastfood_url = "http://172.26.38.8:5984/results/_design/filter/_view/fastfood?reduce=true&group_level=1&skip=0"
+alcohol_url = "http://172.26.38.8:5984/results/_design/filter/_view/alcohol?reduce=true&group_level=1&skip=0"
+general_url = "http://172.26.38.8:5984/results/_design/filter/_view/counts?reduce=true&group_level=1&skip=0"
+sentiment_url = "http://172.26.38.8:5984/results/_design/filter/_view/sentiment_count?reduce=true&group_level=1&skip=0&"
 
 @app.route('/index')
 def home():
