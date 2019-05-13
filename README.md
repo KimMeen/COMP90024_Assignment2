@@ -20,10 +20,15 @@ master
 ```
 
 ### Deployment
- `chmod -x deploy.sh` 
-`git clone git@github.com:KimMeen/COMP90024_Assignment2.git`
-`cd ./deploy`
-`./deploy.sh`
+```
+chmod -x deploy.sh
+
+git clone git@github.com:KimMeen/COMP90024_Assignment2.git
+
+cd ./deploy
+
+./deploy.sh
+```
 
 ### Tweets Harvest
 To run the tweets harvset, be sure to include twitter_config.py and harvester under a same directory, the run command python3 harvester.py
@@ -41,7 +46,7 @@ Firstly, we predefine the CouchDB configuration file (db_config.json) under ./an
    ]
 }
 ```
-'Servers' defines the entry of the database and 'DB' contains the table name of raw tweets and output results.
+'Servers' defines the entry of the CouchDB server and 'DB' contains the DB name of documents produced by harvester and analyzer.
 
 Then we execute the `analyzer.py` by using MPI inside of the Docker Container:
 ```
