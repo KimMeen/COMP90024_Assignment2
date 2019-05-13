@@ -1,12 +1,16 @@
-# COMP90024_Assignment2
+## COMP90024 Cluster and Clould Computing - Assignment2
+```
+Group 66
+  |-- Minghong Gao()
+  |-- Ming Jin(947351)
+  |-- Kangping Xue()
+  |-- Ziang Chen()
+  |-- Wenjin Li()
+```
+### Deployment
 
------
-## Sentiment analysis
-![sentiment analysis](https://github.com/KimMeen/COMP90024_Assignment2/blob/master/docs/result.jpg)
+### Tweets Harvest
 
-**Note:** The training data is too big to upload, as well as the model itself. 
+### Analysis
 
------
-## Sentiment analysis API
-![API](https://github.com/KimMeen/COMP90024_Assignment2/blob/master/docs/WeChat%20Screenshot_20190425172805.png)
-
+### Websites
