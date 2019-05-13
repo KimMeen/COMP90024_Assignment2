@@ -4,8 +4,8 @@ Group 66
   |-- Minghong Gao (798106)
   |-- Ming Jin (947351)
   |-- Kangping Xue (878962)
-  |-- Ziang Chen ()
-  |-- Wenjin Li ()
+  |-- Ziang Chen (957348)
+  |-- Wenjin Li (931352)
 ```
 ### Overview
 The repository contains codes for environment deployment, tweets harvesting, tweets analysis, and front-end web.
