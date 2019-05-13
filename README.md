@@ -50,9 +50,9 @@ After several hours, the analysis results will be stored in `results_latest` tab
 ![results_latest](https://github.com/KimMeen/COMP90024_Assignment2/blob/master/docs/results_latest.PNG)
 
 ### Websites
-The Web Server uses flask web framework. There are serveral options for user to deploy/run the appliation on their local development server. In default, the application has specified a app.run method to start the Server. On command line, simply `python3 Server ip_address` or `nohup python3 Server ip_adderss` to keep the server running on the background where ip_address is the argument for the host address of server
+The Web Server uses flask web framework. There are serveral options for user to deploy/run the appliation on their local development server. In default, the application has specified a app.run method to start the Server. On command line, simply `python3 Server db_address` or `nohup python3 Server db_adderss` to keep the server running on the background where db_address is the database address for the server
 ```
-app.run(host, port, debug, options)
+app.run('0.0.0.0', port, debug, options)
 debug : defaults to false. If set to true, provides a debug information
 options : to be forwarded to underlying Werkzeug server.
 ```
