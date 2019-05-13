@@ -75,7 +75,7 @@
 <script>
     function getMapData(){
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", 'http://10.12.0.132:8080/data', false);
+        xmlHttp.open("GET", 'http://172.26.38.15:8080/data', false);
         xmlHttp.send();
         var obj = JSON.parse(xmlHttp.responseText);
         return obj;
