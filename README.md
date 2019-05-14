@@ -13,7 +13,7 @@ The repository contains codes for environment deployment, tweets harvesting, twe
 Website : http://172.26.38.167:8080/index
 
 
-Video: https://www.youtube.com/watch?v=sPc_wLi9gKI&feature=youtu.be
+Video: https://www.youtube.com/watch?v=rHp_UERly4Q&feature=youtu.be
 
 ```
 master
