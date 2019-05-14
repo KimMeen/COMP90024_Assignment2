@@ -7,13 +7,46 @@
 # section of your existing file and you can refer to them by name with
 # OS_CLOUD=openstack or --os-cloud=openstack
 clouds:
-  openstack:
+  openstack_group:
     auth:
       auth_url: https://keystone.rc.nectar.org.au:5000/v3/
       username: "m.gao8@student.unimelb.edu.au"
       password: "YWMxMDc4MTU3MDY1MDhj"
       project_id: a2f5f4d6a2724e09bd9c0ff81e2ece12
       project_name: "unimelb-comp90024-group-66"
+      user_domain_name: "Default"
+    region_name: "Melbourne"
+    interface: "public"
+    identity_api_version: 3
+  openstack_gmh:
+    auth:
+      auth_url: https://keystone.rc.nectar.org.au:5000/v3/
+      username: "m.gao8@student.unimelb.edu.au"
+      password: "YWMxMDc4MTU3MDY1MDhj"
+      project_id: 4afbc9caf4214084a567382a752e6fc5
+      project_name: "pt-43248"
+      user_domain_name: "Default"
+    region_name: "Melbourne"
+    interface: "public"
+    identity_api_version: 3
+  openstack_pwx:
+    auth:
+      auth_url: https://keystone.rc.nectar.org.au:5000/v3/
+      username: "w.pan7@student.unimelb.edu.au"
+      password: "YzUwNjg2ZTEwMGQ5ZTll"
+      project_id: ee87ea427290464b982aa798931b5ae7
+      project_name: "pt-46120"
+      user_domain_name: "Default"
+    region_name: "Melbourne"
+    interface: "public"
+    identity_api_version: 3
+  openstack_lwj:
+    auth:
+      auth_url: https://keystone.rc.nectar.org.au:5000/v3/
+      username: "wenjinl2@student.unimelb.edu.au"
+      password: "OGUyZGZhMDEyZWIzMzIx"
+      project_id: 1fabccff8ed74022bd6d4887efcc3ea8
+      project_name: "pt-45310"
       user_domain_name: "Default"
     region_name: "Melbourne"
     interface: "public"

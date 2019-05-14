@@ -25,6 +25,9 @@ def create_keypair(conn):
 
     return keypair
 
+def attach_volumn(conn, server, volumn):
+    volumes = conn.volume.volumes()
+    print list(volumes)
 
 
 def create_server(conn, server_name):
@@ -46,7 +49,10 @@ def create_server(conn, server_name):
         networks=[{"uuid": network.id}], security_groups=security_groups, key_name=keypair.name)
 
     server = conn.compute.wait_for_server(server)
-
-    print("ssh -i {key} ubuntu@{ip}".format(
-        key=PRIVATE_KEYPAIR_FILE,
+    # test-node-2 ansible_host=172.26.38.168
+    print("{hostname} ansible_host={ip}".format(
+        hostname=server_name,
         ip=server.addresses[NETWORK_NAME][0]['addr']))
+
+    with open("../ansible/hosts.ini","a") as f:
+        f.write(server_name + " ansible_host=" + server.addresses[NETWORK_NAME][0]['addr'] + "\n")
