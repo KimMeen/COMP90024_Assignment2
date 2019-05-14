@@ -9,6 +9,12 @@ Group 66
 ```
 ### Overview
 The repository contains codes for environment deployment, tweets harvesting, tweets analysis, and front-end web.
+
+Website : http://172.26.38.167:8081/index
+
+
+Video: https://www.youtube.com/watch?v=sPc_wLi9gKI&feature=youtu.be
+
 ```
 master
   |-- Server: This folder contains codes related to front-end webs
@@ -67,6 +73,3 @@ debug : defaults to false. If set to true, provides a debug information
 options : to be forwarded to underlying Werkzeug server.
 ```
 However, flask’s built-in server is not suitable for production as it doesn’t scale well. If user uses the hosted option to deploy the server for example Heroku, OpenShift, Google App Engine etc. Please refer the below link http://flask.pocoo.org/docs/1.0/deploying/ 
-
-Ready to run website : http://172.26.38.167:8081/index
-
