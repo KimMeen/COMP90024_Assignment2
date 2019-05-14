@@ -1,4 +1,4 @@
-var url = 'http://172.26.38.15:8080/'
+var url = 'http://172.26.38.167:8080/'
 
 
 function getLastSelectedValue(){

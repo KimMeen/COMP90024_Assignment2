@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61a57ba-96f5-445a-82eb-ddb5fb61d062" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/css/cover.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/css/m_cover.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/e_bank.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/img/bank-background-hd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/img/mapBg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/img/wallpaper.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/js/animation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/js/functions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../BankSystem-master-3/web/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DA-master-5/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DA-master-5/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DA-master-5/app/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../DA-master-5/app/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DA-master-5/app/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../DA-master-5/app/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/dataRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/dataRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/charts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +127,37 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-254027980">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="23" />
+          <entry key="js" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="23" />
+          <entry key="JavaScript" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Server" />
@@ -156,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2414">
+            <state relative-caret-position="1155">
               <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
             </state>
           </provider>
@@ -165,8 +176,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+            <state relative-caret-position="3105">
+              <caret line="207" column="38" selection-start-line="207" selection-start-column="15" selection-end-line="207" selection-end-column="38" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -175,10 +186,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/aus_regions.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="30" selection-start-column="18" selection-end-column="30" />
+              <caret column="36" selection-start-column="11" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -186,8 +215,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="79" column="48" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+            <state relative-caret-position="182">
+              <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="405" column="15" selection-start-line="405" selection-start-column="15" selection-end-line="405" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -203,7 +241,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FastFood</find>
       <find>title</find>
       <find>h4</find>
       <find>para</find>
@@ -233,13 +270,14 @@
       <find>degree_title1</find>
       <find>print</find>
       <find>ip</find>
+      <find>Number</find>
     </findStrings>
     <replaceStrings>
       <replace>CITY_CODE</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -261,16 +299,16 @@
         <option value="$PROJECT_DIR$/regionToCity.json" />
         <option value="$PROJECT_DIR$/mapReduce.js" />
         <option value="$PROJECT_DIR$/templates/regionsMap.html" />
-        <option value="$PROJECT_DIR$/templates/charts.html" />
         <option value="$PROJECT_DIR$/Server.py" />
+        <option value="$PROJECT_DIR$/templates/charts.html" />
         <option value="$PROJECT_DIR$/static/js/dataRequest.js" />
         <option value="$PROJECT_DIR$/templates/map.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="23" />
+    <option name="x" value="78" />
+    <option name="y" value="24" />
     <option name="width" value="1197" />
     <option name="height" value="829" />
   </component>
@@ -327,6 +365,36 @@
               <item name="Server" type="b2602c69:ProjectViewProjectNode" />
               <item name="Server" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="werkzeug" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -480,7 +548,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="23" width="1197" height="829" extended-state="0" />
+    <frame x="93" y="156" width="1197" height="829" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6654676" visible="true" weight="0.16411565" />
@@ -541,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4320">
           <caret line="295" selection-start-line="295" selection-end-line="295" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="794" selection-start-line="794" selection-end-line="794" />
         </state>
       </provider>
     </entry>
@@ -639,15 +700,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/regionsMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2414">
+        <state relative-caret-position="1155">
           <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/charts.html">
+    <entry file="file://$PROJECT_DIR$/Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="203" column="135" selection-start-line="203" selection-start-column="135" selection-end-line="203" selection-end-column="135" />
+        <state relative-caret-position="3105">
+          <caret line="207" column="38" selection-start-line="207" selection-start-column="15" selection-end-line="207" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -658,27 +722,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="405" column="15" selection-start-line="405" selection-start-column="15" selection-end-line="405" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/charts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="120" column="27" lean-forward="true" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/dataRequest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="30" selection-start-column="18" selection-end-column="30" />
+          <caret column="36" selection-start-column="11" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="79" column="48" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+        <state relative-caret-position="182">
+          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
         </state>
       </provider>
     </entry>

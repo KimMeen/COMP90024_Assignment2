@@ -140,7 +140,7 @@ function drawChart(data0, title, container){
     }else{
     	chart.xAxis().title("Regions");
     }
-    chart.yAxis().title("Patients Number");
+    chart.yAxis().title("Portion");
     // set the container id
     chart.container(container);
     // initiate drawing the chart
@@ -163,7 +163,7 @@ function drawMultChart(data, title, container){
     chart.barGroupsPadding(2);
     if (container == "container5"){
     	chart.xAxis().title("Cities");
-    	chart.yAxis().title("Number");
+    	chart.yAxis().title("Portion");
     }else{
     	chart.xAxis().title("Regions");
     	chart.yAxis().title("Portion");
