@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>City Map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body { margin:0; padding:0; }
+  #map {
+    position:absolute;
+    width: 1500px;
+		height: 900px;
+  }
+  .social-part .fa{
+      padding-right:20px;
+  }
+  ul li a{
+      margin-right: 20px;
+  }
+  .no-js #loader { display: none;  }
+  .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+  .se-pre-con {
+  	position: fixed;
+  	left: 0px;
+  	top: 0px;
+  	width: 100%;
+  	height: 100%;
+  	z-index: 9999;
+  	background: url(static/img/Preloader_7.gif)
+    center no-repeat #fff;
+}
+</style>
+</head>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/dataRequest.js') }}"></script>
+<script src="{{ url_for('static', filename='js/toolBar.js') }}"></script>
+<body>
+<nav class="navbar navbar-expand-sm   navbar-light bg-light">
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+  <div class="se-pre-con"></div>
+ <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+     <li class="nav-item">
+         <a class="nav-link"  href="{{url_for('home')}}" >Home </a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#">Map</a>
+     </li>
+   <li class="nav-item">
+     <a class="nav-link" href="{{url_for('goToRegionMap')}}" >Choropleth Map</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link" href="{{url_for('goToChartPage')}}">Data Graphs</a>
+   </li>
+   </ul>
+   <div class="social-part">
+     <i>Data is powered by &nbsp &nbsp </i>
+     <i class="fa fa-twitter" aria-hidden="true"></i>
+   </div>
+ </div>
+</nav>
+<div id='map'></div>
+
+<script>
+
+    function getMapData(){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", 'http://172.26.38.15:8080/data', false);
+        xmlHttp.send();
+        var obj = JSON.parse(xmlHttp.responseText);
+        return obj;
+    };
+    L.mapbox.accessToken = 'pk.eyJ1IjoiemFjazA1MTgiLCJhIjoiY2p0OXF1NGt0MDMyNTQzbWV5Zmhsbnc0ZiJ9.6TFEHb0M8Iw-J6R45KYsMw';
+
+
+    var fastFood = L.icon({
+      iconUrl: "{{ url_for('static', filename='img/fastfood.png') }}",
+      iconSize: [30, 30],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+    });
+
+    var beer = L.icon({
+      iconUrl: "{{ url_for('static', filename='img/beer.png') }}",
+      iconSize: [30, 30],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+    });
+
+    var smoke = L.icon({
+      iconUrl: "{{ url_for('static', filename='img/smoke.png') }}",
+      iconSize: [30, 30],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+    });
+
+    var myIcon = L.icon({
+      iconUrl: "{{ url_for('static', filename='img/twitter.png') }}",
+      iconSize: [30, 30],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+    });
+    var dataObj = getMapData()
+
+        var map = L.mapbox.map('map')
+            .setView([-30.70, 133.90], 4)
+            .addLayer(L.mapbox.styleLayer('mapbox://styles/zack0518/cjvktw16t2ie91coa93x1q4w6'));
+
+        var markers = new L.MarkerClusterGroup();
+        for (var i = 0; i < dataObj.rows.length; i++) {
+            var a = dataObj.rows[i].key;
+            var labelText = ""
+            if (a.label == 0){
+                labelText = "Positive"
+            }else{
+                labelText = "Negative"
+            }
+            var description = "Sentiment label : "+ labelText +'<br>'
+            +"Fastfood score : " + a.fastfood_score + '<br>'
+            +"Smoking score : " + a.smoking_score + '<br>'
+            +"Alcohol score : "+a.alcohols_score;
+
+            if (a.fastfood_score > 0){
+               myIcon = fastFood
+            }else if (a.smoking_score > 0){
+              myIcon = smoke
+            }else if (a.alcohols_score > 0){
+              myIcon = beer
+            }
+
+            if (a.coordinates != null){
+              var marker = L.marker(new L.LatLng(a.coordinates[0], a.coordinates[1]), {
+                  icon: myIcon,
+                  title: description
+              });
+              marker.bindPopup(description);
+              markers.addLayer(marker);
+            }
+        }
+        map.addLayer(markers);
+        $(".se-pre-con").fadeOut("slow");
+</script>
+
+</body>
+</html>

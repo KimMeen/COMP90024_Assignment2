@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
-
 import couchdb
 import json
 import sys
@@ -10,18 +8,10 @@ sys.path.append('./sentiment analysis/release')
 import sentiment_prediction as senti
 sys.path.append('./topic analysis')
 import scorer
-sys.path.append('../util')
-import text_util
-# sys.path.append('../util')
-# import MapRegion
-
-
-# In[6]:
 
 
 '''
-    Get the source db(the db created by harverster)
-    and the destination db (store the result)
+    Get the source db(the db created by harverster).
 '''
 def get_source_db():
     config = None
@@ -41,6 +31,11 @@ def get_source_db():
             sys.exit(2)
     return source_db
 
+'''
+    Get the destination DB which stores the 
+    analysis result.
+'''
+
 def get_dest_db():
     config = None
     db_server = None
@@ -57,6 +52,10 @@ def get_dest_db():
             sys.exit(2)
     return dest_db
 
+'''
+    Master node is responsible to create the destination DB
+    if it didn't exist before.
+'''
 def create_dest_db():
     config = None
     db_server = None
@@ -79,25 +78,29 @@ def create_dest_db():
 
 '''
     This is the excution part,
-    the analysis result will be returned
+    the analysis result will be returned.
+    document:meta data of couchDB which contains information about one tweet 
+    in the form of JSON.
 '''
 def analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scorer):
     id = document["_id"]
     created_at = document["created_at"]
     text = document["text"]
-    #location = document["location"]
     coordinates = document["coordinates"]
     label, proba = senti_analyzer.prediction(text)
     # 0:NEGATIVE 1:POSITIVE
     label_flag = 0 if label=="NEGATIVE" else 1
     region = document["region"]
+    #calculate the score about these three topics
     alcohols_sc = alcohols_scorer.get_score_v2(text)
     fastfood_sc = fastfood_scorer.get_score_v2(text)
     smoking_sc = smoking_scorer.get_score_v2(text)
     return {"_id":id,"created_at":created_at,"text":text,"label":label_flag,"region":region,"probability":proba,"coordinates":coordinates,
                        "alcohols_score":alcohols_sc,"fastfood_score":fastfood_sc,"smoking_score":smoking_sc}
 
-
+'''
+    MPI implementation
+'''
 from mpi4py import MPI
 import time
 
@@ -108,6 +111,7 @@ start_time = time.time()
 modelpath = './sentiment analysis/model/sentiment_lstm.h5'
 pklpath = './sentiment analysis/model/sentiment140-freqdist.pkl'
 senti_analyzer = senti.sentianalyser(modelpath, pklpath, stemmer = False)
+# Master node needs to create the destination DB if it doesn't exist 
 if comm_rank == 0:
     source_db = get_source_db()
     dest_db = get_dest_db()
@@ -116,23 +120,33 @@ if comm_rank == 0:
 else:
     source_db = get_source_db()
     dest_db = None
+    # Get the destination DB in loop in case of concurrecy proble,
+    # that is, slave nodes try to acquire the dest DB before master node creates it.
     while dest_db == None:
         dest_db = get_dest_db()
 alcohols_dict = "./topic analysis/dictionary/alcohols.txt"
 fastfood_dict = "./topic analysis/dictionary/fastfood.txt"
 smoking_dict = "./topic analysis/dictionary/smoking.txt"
+# create Scorer objects for each topic 
+# so that the resource only needs to be loaded once. 
 alcohols_scorer = scorer.Scorer(senti_analyzer, alcohols_dict)
 fastfood_scorer = scorer.Scorer(senti_analyzer, fastfood_dict)
-smoking_scorer = scorer.Scorer(senti_analyzer, alcohols_dict)
+smoking_scorer = scorer.Scorer(senti_analyzer, smoking_dict)
+# index records the number of tweets 
 index = 0
+# records the number of results in the buffer
 buffer = 0
+# A temporary list to store results.
+# if the buffer is full, data in result will be written into dest DB,
+# and buffer and result will be reset.
 result = []
 for ele in source_db:
     index += 1
     print(index)
-    if ele in dest_db:
-        continue
-    if index % comm_size == comm_rank: 
+    # each node only handles the tweets they are responsible for.
+    if index % comm_size == comm_rank:
+        if ele in dest_db:
+            continue
         buffer += 1
         document = source_db[ele]
         result.append(analyze(document,senti_analyzer,alcohols_scorer,fastfood_scorer,smoking_scorer))
@@ -140,6 +154,7 @@ for ele in source_db:
             dest_db.update(result)
             buffer = 0
             result = []
+# If the buffer is not empty, store the rest of the results into dest DB.
 if buffer != 0 and len(result) != 0:
     dest_db.update(result)
 end_time = time.time()
