@@ -1,15 +1,81 @@
 ---
+# Tested and Finished
 - hosts: all
   remote_user: ubuntu
-  sudo: true
   tasks:
     - name: Ensure proxies is well-configured
+      sudo: true
       template:
         src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/proxy_config
         dest: /etc/environment
 
+    - name: Add hosts mapping
+      sudo: true
+      blockinfile: 
+        path: /etc/hosts 
+        block: |
+          {% for host in groups['all'] %}
+          {{ hostvars[host]['ansible_default_ipv4']['address'] }} {{ host }}
+          {% endfor %}
+        marker: "# ANSIBLE {mark} MANAGED BLOCK "
+    
+    - name: Copying private key to the server
+      copy:
+        src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/cccAssi2_private.pem
+        dest: /home/ubuntu/.ssh/cccAssi2_private.pem
+        owner: ubuntu
+        group: ubuntu
+        mode: 0400
+
+    
+
+    - name: Ensure ssh server is well configured
+      template:
+        src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/ssh_config
+        dest: /home/ubuntu/.ssh/config
+
+    - name: Scan all nodes port to get information step 1
+      command: ssh-keyscan -H {{ item }}
+      loop: "{{ groups['all'] }}"
+      register: knownhosts
+
+    - name: Scan all nodes port to get information step 2
+      command: ssh-keyscan -H {{ hostvars[item]['ansible_default_ipv4']['address'] }}
+      loop: "{{ groups['all'] }}"
+      register: knownhosts
+
+    - name: Scan all nodes port to get information step 3
+      command: ssh-keyscan -H {{ item }},{{ hostvars[item]['ansible_default_ipv4']['address'] }}
+      loop: "{{ groups['all'] }}"
+      register: knownhosts
+
+    - name: Create known hosts if it doesn't exist
+      file:
+        path: "/home/ubuntu/.ssh/known_hosts"
+        state: touch
+
+    - name: Save nodes info to known hosts
+      blockinfile:
+        path: /home/ubuntu/.ssh/known_hosts
+        block: |
+          {% for knownhost in knownhosts.results %}
+          {{ knownhost.stdout }}
+          {% endfor %}
+  
+    - name: Ensure all nodes can visit other nodes
+      command: 'ssh {{ item }} echo "success"'
+      loop: "{{ groups['all'] }}"
+      register: ssh_states
+    
+    - name: Testing all nodes can visit other nodes
+      fail:
+        msg: "Connection failed"
+      when: item.stdout != "success"
+      with_items: "{{ ssh_states.results }}"
+    
 
     - name: Ensure necessary software is installed
+      sudo: true
       apt:
         name: "{{ packages }}"
         update_cache: yes
@@ -20,19 +86,26 @@
         - curl
         - gnupg-agent
         - software-properties-common
+        - python-pip 
+        - python-dev 
+        - build-essential
+
     
-    - name: Get and Add Docker gpg key 
+    - name: Get and Add Docker gpg key
+      sudo: true
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
   
     - name: Add Docker apt repository
+      sudo: true
       apt_repository:
         repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
         state: present
         update_cache: yes
       
     - name: Ensure docker is installed
+      sudo: true
       apt:
         name: "{{ packages }}"
         update_cache: yes
@@ -43,18 +116,295 @@
         - containerd.io
 
     - name: Ensures Docker configuration Folder exists
+      sudo: true
       file: 
         path: /etc/systemd/system/docker.service.d
         state: directory
 
     - name: Ensure docker is well-configured
+      sudo: true
       template:
         src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/docker_config
         dest: /etc/systemd/system/docker.service.d/http-proxy.conf
 
     - name: Ensure docker service is restarted
-      service:
+      sudo: true
+      systemd:
+        daemon_reload: yes
         name: docker
         state: restarted
 
+    - name: Ensure data volumn directory has been created
+      file: 
+        path: /home/ubuntu/data
+        state: directory
+
+    - name: attach volumes
+      sudo: true
+      command: mount /dev/vdb /home/ubuntu/data
+  
+
+    - name: Ensure docker-py has been install
+      sudo: true
+      pip:
+        name: docker-py
+        state: present
+
+# This is for couchDB setup --Tested and finished
+- hosts: all
+  remote_user: ubuntu
+  sudo: true
+  vars:
+    my_etc_hosts: {}
+  tasks:
+    - set_fact:
+        my_etc_hosts: "{{ my_etc_hosts | combine( { item: hostvars[item]['ansible_default_ipv4']['address']} ) }}"
+      with_items: "{{ groups['all'] }}"
+
+    - name: Install and launch CouchDB container
+      sudo: true
+      docker_container:
+        name: couchDB
+        image: couchdb:2.3.0
+        state: started
+        restart: yes
+        ports:
+          - "4369:4369"
+          - "5984:5984"
+          - "5986:5986"
+          - "9100:9100"
+        volumes:
+          - "/home/ubuntu/data:/opt/couchdb/data"
+        etc_hosts: "{{ my_etc_hosts | default({}) }}"
+
+    - name: Set Up Admin Party Cluster
+      command: docker exec couchDB bash -c "echo \"-setcookie couchdb_cluster\" >> /opt/couchdb/etc/vm.args"
     
+    - name: Set Up Binding Address
+      command: docker exec couchDB bash -c "echo \"-name couchdb@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}\" >> /opt/couchdb/etc/vm.args"
+    
+    - name: Restart couchDB Container
+      docker_container:
+        name: couchDB
+        state: started
+        restart: yes
+        
+
+    - pause: seconds=60
+
+    - name: Set Up Admin Password to couchDB
+      uri:
+        url: http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:5984/_node/_local/_config/admins/admin
+        method: PUT
+        body: "\"admin\""
+    
+    - name: Testing
+      uri:
+        url: http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:5984/
+        user: admin
+        password: admin
+        method: GET
+
+    - name: Setting Up Binding Address
+      uri:
+        url: http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:5984/_node/couchdb@{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}/_config/chttpd/bind_address
+        user: admin
+        password: admin
+        force_basic_auth: yes
+        method: PUT
+        body: "\"0.0.0.0\""
+
+- hosts: all
+  remote_user: ubuntu
+  sudo: true
+  vars:
+    request_enable_cluster: {
+      "action": "enable_cluster", 
+      "bind_address": "0.0.0.0", 
+      "username": "admin", 
+      "password": "admin", 
+      "port": "5984",
+      "remote_node": "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}",
+      "remote_current_user": "admin", 
+      "remote_current_password": "admin"
+      }
+  tasks:
+    - name: Enable Cluster Set Up
+      uri:
+        url: http://{{ hostvars[groups['Master-Node'][0]]['ansible_default_ipv4']['address'] }}:5984/_cluster_setup
+        user: admin
+        password: admin
+        force_basic_auth: yes
+        method: POST
+        body_format: json
+        body: "{{ request_enable_cluster | to_json }}"
+        status_code: 201
+      
+
+      
+- hosts: Slave-Nodes
+  remote_user: ubuntu
+  sudo: true
+  vars:
+    request_add_node: {
+      "action": "add_node",
+      "host": "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}",
+      "port": "5984",
+      "username": "admin", 
+      "password": "admin"
+      }
+  tasks:
+    - name: Adding Node
+      uri:
+        url: http://{{ hostvars[groups['Master-Node'][0]]['ansible_default_ipv4']['address'] }}:5984/_cluster_setup
+        user: admin
+        password: admin
+        force_basic_auth: yes
+        method: POST
+        body_format: json
+        body: "{{ request_add_node | to_json }}"
+        status_code: 201, 409
+
+# finish cluster set up  
+- hosts: Master-Node
+  remote_user: ubuntu
+  sudo: true
+  vars:
+    request_finish_set_up: {
+      "action": "finish_cluster" 
+    }
+  tasks:
+    - name: Tell master node to finish set up
+      uri:
+        url: http://{{ hostvars[groups['Master-Node'][0]]['ansible_default_ipv4']['address'] }}:5984/_cluster_setup
+        user: admin
+        password: admin
+        force_basic_auth: yes
+        method: POST
+        body_format: json
+        body: "{{ request_finish_set_up | to_json }}"
+        status_code: 201, 400
+    
+- hosts: Master-Node
+  remote_user: ubuntu
+  tasks:
+    - name: Install nfs server and git
+      sudo: true
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages: 
+        - nfs-kernel-server
+        - git-core
+    
+    - pause: seconds=5
+    
+
+- hosts: Master-Node
+  remote_user: ubuntu
+  vars_prompt: 
+    - name: githubuser
+      prompt: "Enter your github username" 
+      private: no 
+    - name: githubpassword
+      prompt: "Enter your github password" 
+      private: yes 
+  tasks:
+    - name: clone Code repository
+      git:
+        repo: https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode }}@github.com/KimMeen/COMP90024_Assignment2.git
+        version: master
+        dest: /home/ubuntu/COMP90024_Assignment2
+      register: result
+      retries: 2
+      delay: 2
+      until: result is not failed
+
+    - name: Modify export Directory
+      sudo: true
+      template:
+        src: /Users/minghonggao/CCC/COMP90024_Assignment2/deploy/ansible/exports_config
+        dest: /etc/exports
+
+    - name: Restart rpcbind
+      sudo: true
+      service:
+        name: rpcbind
+        state: restarted
+
+    - name: Restart nfs server
+      sudo: true
+      service:
+        name: nfs-kernel-server
+        state: restarted
+    
+    - name: mount repository
+      sudo: true
+      command: mount -t nfs localhost:/home/ubuntu/COMP90024_Assignment2 /mnt
+
+
+
+        
+#Slaves Node mount repository
+- hosts: Slave-Nodes
+  remote_user: ubuntu
+  tasks:
+    - name: Install nfs client
+      sudo: true
+      apt:
+        name: nfs-common
+
+    - name: mount repository from server
+      sudo: true
+      command: "mount -t nfs {{ hostvars[groups['Master-Node'][0]]['ansible_default_ipv4']['address'] }}:/home/ubuntu/COMP90024_Assignment2 /mnt"
+    
+- hosts: all
+  remote_user: ubuntu
+  tasks:
+    - name: Install and launch mpi environment
+      sudo: true
+      docker_container:
+        name: "mpi_{{ inventory_hostname }}"
+        image: gmhpwx/simple_openmpi:latest
+        state: started
+        hostname: "{{ inventory_hostname }}"
+        pull: yes
+        detach: yes
+        interactive: yes
+        tty: yes
+        restart: yes
+        network_mode: host
+        volumes:
+          - "/mnt:/mnt"
+
+    - name: Add all hosts to each container
+      sudo: true
+      command: docker exec "mpi_{{ inventory_hostname }}" bash -c "echo -e \"Host {{ item }} \\n    Hostname {{ hostvars[item]['ansible_default_ipv4']['address'] }} \\n    Port 1234 \\n    User root \\n\" >> /root/.ssh/config"
+      loop: "{{ groups['all'] }}"
+
+
+# Web server Set up
+- hosts: Master-Node
+  remote_user: ubuntu
+  tasks:
+    - name: Install and launch web server environment
+      sudo: true
+      docker_container:
+        name: "web_server"
+        image: gmhpwx/webserver_environment:latest
+        state: started
+        hostname: "web_server"
+        pull: yes
+        detach: yes
+        interactive: yes
+        tty: yes
+        restart: yes
+        network_mode: host
+        volumes:
+          - "/mnt:/mnt"
+
+    - pause: seconds=20
+
+    - name: Deploy server now
+      sudo: true
+      command: docker exec web_server bash -c "cd /mnt/Server/ && nohup python Server.py &"

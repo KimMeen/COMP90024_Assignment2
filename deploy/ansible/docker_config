@@ -2,4 +2,4 @@
 Environment="HTTP_PROXY=http://wwwproxy.unimelb.edu.au:8000/"
 Environment="HTTPS_PROXY=http://wwwproxy.unimelb.edu.au:8000/"
 Environment="FTP_PROXY=http://wwwproxy.unimelb.edu.au:8000/"
-Environment="NO_PROXY=localhost,127.0.0.1"
+Environment="NO_PROXY=localhost,127.0.0.1,{% for host in hostvars %}{{ host }},{% endfor %}"
